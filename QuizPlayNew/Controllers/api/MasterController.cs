@@ -1134,23 +1134,35 @@ namespace QuizPlayNew.Controllers.api
             liveChallangeLog.IsActive = 1;
             liveChallangeLog.IsAccepted = 0;
             liveChallangeLog.TimeStamp = DateTime.Now;
-            context.tbl_LiveChallenge_Log.Add(liveChallangeLog);
-            context.SaveChanges();
-            var senderName = context.tbl_QPFbInfo.First(x => x.FbId == liveChallangeLog.FbIdSender);
-            var liveRequestSend = new LiveChallange()
+            var ifExists = context.tbl_LiveChallenge_Log.Any(x =>
+                x.FbIdSender == liveChallangeLog.FbIdSender && x.FbIdReceiver == liveChallangeLog.FbIdReceiver &&
+                x.IsActive == 1);
+            if (!ifExists)
             {
-                to = liveChallangeLog.Receiver,
-                data = new LiveData()
+                context.tbl_LiveChallenge_Log.Add(liveChallangeLog);
+                context.SaveChanges();
+
+
+                var senderName = context.tbl_QPFbInfo.First(x => x.FbId == liveChallangeLog.FbIdSender);
+                var liveRequestSend = new LiveChallange()
                 {
-                    RoomId = liveChallangeLog.FbIdSender.ToString() + liveChallangeLog.FbIdReceiver.ToString(),
-                    Type = "ChallangeSent",
-                    Message = senderName.FbName + " request you for a challange"
+                    to = liveChallangeLog.Receiver,
+                    data = new LiveData()
+                    {
+                        RoomId = liveChallangeLog.FbIdSender.ToString() + liveChallangeLog.FbIdReceiver.ToString(),
+                        Type = "ChallangeSent",
+                        Message = senderName.FbName + " request you for a challange"
 
-                }
+                    }
 
-            };
-            HitFirebase.SendPushNotification("", liveRequestSend);
-            return Ok(new { result = "Success" });
+                };
+                HitFirebase.SendPushNotification("", liveRequestSend);
+            }
+
+            return Ok(new
+            {
+                result = !ifExists ? "Success":"Already Sent"
+            });
         }
 
         [HttpPost]
@@ -1158,7 +1170,7 @@ namespace QuizPlayNew.Controllers.api
         {
             //liveChallangeLog.IsActive = 0;
             //liveChallangeLog.IsAccepted = 1;
-            var userToUpdate = context.tbl_LiveChallenge_Log.First(x => x.Receiver == liveChallangeLog.Receiver && x.FbIdReceiver == liveChallangeLog.FbIdReceiver);
+            var userToUpdate = context.tbl_LiveChallenge_Log.OrderByDescending(x=>x.Id).First(x => x.Receiver == liveChallangeLog.Receiver && x.FbIdReceiver == liveChallangeLog.FbIdReceiver);
             userToUpdate.IsActive = 0;
             userToUpdate.IsAccepted = liveChallangeLog.IsAccepted;
             userToUpdate.AcceptedTime = DateTime.Now;
