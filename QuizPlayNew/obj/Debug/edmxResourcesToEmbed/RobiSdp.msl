@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Robi_SDPModelStoreContainer" CdmEntityContainer="RobiSDPContext">
+    <FunctionImportMapping FunctionImportName="spInsertSubscriptionQ_To_SDP_channelID_1" FunctionName="Robi_SDPModel.Store.spInsertSubscriptionQ_To_SDP_channelID_1" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "MyAccount";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<script src="~/Scripts/MyAccount.js"></script>
+<div ng-controller="MyAccountController">
+    <div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="panel panel-danger">
+
+
+                <div class="panel-heading"><b>My Account-{{msisdn}}</b>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-responsive">
+                        <tr>
+                            <th>Content</th>
+                            <th>Charge</th>
+                            <th>Time</th>
+                        </tr>
+                        <tr ng-repeat="x in account">
+                            <td>{{x.Content}}</td>
+                            <td>{{x.Charge}}</td>
+                            <td>{{x.TimeStamp}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+

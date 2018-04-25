@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "UnsubscriptionSuccessfull";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<div ng-controller="UnsubcribeController">
+    <div class="row text-center">
+        <h3>Are you sure to unsubscribe from QuizPlay service?</h3>
+    </div>
+    <div class="row" style="margin-left:38%">
+        <div class="col-md-8 col-sm-8">
+            <a ng-click="unsub()"><img src="~/Images/Icons/btnOK.png" width="25%" /></a>
+            <a href="@Url.Action("Default")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    var api = 'http://wap.shabox.mobi/quizplaynew/';
+    var app = angular.module('App', []);
+    app.config(['$qProvider', function ($qProvider) {
+        $qProvider.errorOnUnhandledRejections(false);
+    }]);
+    app.controller('UnsubcribeController',
+        function($scope, $http) {
+            $scope.unsub = () => {
+                
+                $http.post(api + '/api/Master/Unsubscription').then(
+                    function (response) {
+                            
+                        if (response.statusText === "OK") {
+
+                            window.location.href = api+'/Home/Default';
+                        }
+                    });
+                
+               
+            }
+        });
+</script>
+

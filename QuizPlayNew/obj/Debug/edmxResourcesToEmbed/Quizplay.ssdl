@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QpDbContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Qp_Firebase_ClickLog_Tables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RefId" Type="int" />
+    <Property Name="Token" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Qp_Firebase_SendLog_Tables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Token" Type="nvarchar(max)" />
+    <Property Name="IsSuccess" Type="int" />
+    <Property Name="RefId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_LiveChallenge_Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="nvarchar(max)" />
+    <Property Name="Receiver" Type="nvarchar(max)" />
+    <Property Name="FbIdSender" Type="nvarchar(max)" />
+    <Property Name="FbIdReceiver" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="IsAccepted" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="AcceptedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_LiveQuestionAnswer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar(max)" />
+    <Property Name="QuestionId" Type="nvarchar(max)" />
+    <Property Name="Answer" Type="nvarchar(max)" />
+    <Property Name="TimeTaken" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QPFbInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="13" />
+    <Property Name="FbId" Type="nvarchar(max)" />
+    <Property Name="FbName" Type="nvarchar(max)" />
+    <Property Name="FbImageUrl" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="TimeStamp" Type="datetime" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_QpIsLive">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="13" />
+    <Property Name="FbId" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QpTokenLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="13" />
+    <Property Name="FbId" Type="nvarchar(max)" />
+    <Property Name="ServiceName" Type="nvarchar(max)" />
+    <Property Name="Token" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlay_Access_Log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOURCE_URL" Type="varchar(max)" />
+    <Property Name="SERVICE_REQUEST" Type="varchar(max)" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="20" />
+    <Property Name="HS_MANUFACTURER" Type="varchar(max)" />
+    <Property Name="HS_MODEL" Type="varchar(max)" />
+    <Property Name="HS_DIM" Type="varchar(max)" />
+    <Property Name="APN" Type="varchar(max)" />
+    <Property Name="PORTAL_FULLnSHORT" Type="varchar(max)" />
+    <Property Name="CMPAIN_KEY" Type="varchar(max)" />
+    <Property Name="TIME_STAMP" Type="datetime" />
+    <Property Name="IP" Type="varchar(max)" />
+    <Property Name="OS" Type="varchar(max)" />
+    <Property Name="UAHeader" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlay_BonusHour_Played">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlay_Live_MagicHour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Hour" Type="nvarchar" MaxLength="15" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="DayPart" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_MyAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_QuizPlay_MyAccount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="nvarchar" MaxLength="50" />
+    <Property Name="Charge" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlay_Played_Theme">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="13" />
+    <Property Name="Theme" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlay_Played_Theme_Session">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="50" />
+    <Property Name="Theme" Type="int" />
+    <Property Name="Session" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlay_PlayHit_Log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOURCE_URL" Type="varchar" MaxLength="500" />
+    <Property Name="SERVICE_REQUEST" Type="varchar" MaxLength="20" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="20" />
+    <Property Name="HS_MANUFACTURER" Type="varchar" MaxLength="200" />
+    <Property Name="HS_MODEL" Type="varchar" MaxLength="200" />
+    <Property Name="HS_DIM" Type="varchar" MaxLength="50" />
+    <Property Name="APN" Type="varchar" MaxLength="50" />
+    <Property Name="PORTAL_FULLnSHORT" Type="varchar" MaxLength="50" />
+    <Property Name="CMPAIN_KEY" Type="varchar" MaxLength="50" />
+    <Property Name="TIME_STAMP" Type="datetime" />
+    <Property Name="IP" Type="varchar" MaxLength="20" />
+    <Property Name="OS" Type="varchar" MaxLength="30" />
+    <Property Name="UAHeader" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_QuizPlay_ThemeSet_Today">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ThemeID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThemeID" Type="int" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="13" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayDateThemeRelation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThemeID" Type="bigint" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayFixRandomTheme">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="13" />
+    <Property Name="ThemeID" Type="bigint" Nullable="false" />
+    <Property Name="Flag" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayQuestions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="QuestionNo" Type="int" />
+    <Property Name="QuestionThemeID" Type="bigint" Nullable="false" />
+    <Property Name="Ques_level" Type="varchar" MaxLength="50" />
+    <Property Name="QuestionImage" Type="nvarchar" MaxLength="500" />
+    <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Option1" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Option2" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Option3" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Created_By" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="SessionNumber" Type="bigint" Nullable="false" />
+    <Property Name="TotalRight" Type="int" Nullable="false" />
+    <Property Name="TimeTaken" Type="bigint" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayResultBonusHour">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="SessionNumber" Type="bigint" Nullable="false" />
+    <Property Name="TotalRight" Type="int" Nullable="false" />
+    <Property Name="TimeTaken" Type="bigint" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayTheme">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HomeTheme" Type="nvarchar" MaxLength="500" />
+    <Property Name="HomeThemeImage" Type="varchar" MaxLength="255" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayUserAnswer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="QuestionID" Type="bigint" Nullable="false" />
+    <Property Name="response" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="SessionNumber" Type="bigint" Nullable="false" />
+    <Property Name="isCompleted" Type="bit" Nullable="false" />
+    <Property Name="HS_MODEL" Type="varchar" MaxLength="200" />
+    <Property Name="HS_MANUFACTURER" Type="varchar" MaxLength="200" />
+    <Property Name="HS_DIM" Type="varchar" MaxLength="50" />
+    <Property Name="APN" Type="varchar" MaxLength="50" />
+    <Property Name="IP" Type="varchar" MaxLength="100" />
+    <Property Name="OS" Type="varchar" MaxLength="100" />
+    <Property Name="UAHeader" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="tbl_QuizPlayUserAnswerBonusHour">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="QuestionID" Type="bigint" Nullable="false" />
+    <Property Name="Answer" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="SessionNumber" Type="bigint" Nullable="false" />
+    <Property Name="isCompleted" Type="bit" Nullable="false" />
+    <Property Name="HS_MODEL" Type="varchar" MaxLength="200" />
+    <Property Name="HS_MANUFACTURER" Type="varchar" MaxLength="200" />
+    <Property Name="HS_DIM" Type="varchar" MaxLength="50" />
+    <Property Name="APN" Type="varchar" MaxLength="50" />
+    <Property Name="IP" Type="varchar" MaxLength="100" />
+    <Property Name="OS" Type="varchar" MaxLength="100" />
+    <Property Name="UAHeader" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="tbl_Subscriber_QuizPlay">
+    <Key>
+      <PropertyRef Name="SubscriberID" />
+    </Key>
+    <Property Name="SubscriberID" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="10" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Manufacturer" Type="varchar" MaxLength="100" />
+    <Property Name="Model" Type="varchar" MaxLength="100" />
+    <Property Name="SubscriptionSource" Type="varchar" MaxLength="200" />
+    <Property Name="Reg_Date" Type="datetime" Nullable="false" />
+    <Property Name="ReactivationDate" Type="datetime" />
+    <Property Name="DeactivationDate" Type="datetime" />
+    <Property Name="Reg_Status" Type="int" Nullable="false" />
+    <Property Name="Charge_Status" Type="varchar" MaxLength="2" />
+    <Property Name="LastChargedDate" Type="datetime" />
+    <Property Name="REG_AUTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MODIFY_COUNT" Type="int" Nullable="false" />
+    <Property Name="LAST_UPDATE" Type="datetime" Nullable="false" />
+    <Property Name="Confirmation" Type="varchar" MaxLength="2" />
+    <Property Name="Subs_Pack" Type="varchar" MaxLength="15" />
+    <Property Name="ActivationSource" Type="nvarchar" MaxLength="200" />
+    <Property Name="ACB" Type="int" />
+    <Property Name="IsBlocked" Type="int" />
+    <Property Name="Source_URL_OA" Type="nvarchar(max)" />
+    <Property Name="isGrace" Type="int" />
+    <Property Name="IsGraceDeactivate" Type="int" />
+    <Property Name="Is6888" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Unsubscription">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Flag" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Association Name="FK_tbl_QuizPlayDateThemeRelation_tbl_QuizPlayTheme">
+    <End Role="tbl_QuizPlayTheme" Type="Self.tbl_QuizPlayTheme" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_QuizPlayDateThemeRelation" Type="Self.tbl_QuizPlayDateThemeRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_QuizPlayTheme">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_QuizPlayDateThemeRelation">
+        <PropertyRef Name="ThemeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_QuizPlayUserAnswerBonusHour_tbl_QuizPlayQuestions">
+    <End Role="tbl_QuizPlayQuestions" Type="Self.tbl_QuizPlayQuestions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_QuizPlayUserAnswerBonusHour" Type="Self.tbl_QuizPlayUserAnswerBonusHour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_QuizPlayQuestions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_QuizPlayUserAnswerBonusHour">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_fullvideoCatagory_cznew_test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="total" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetLiveQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetLiveUserList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fbid" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_GetTotalLiveRightAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Qid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetUserLiveResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="msisdn" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetVideoUrl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="contentcode" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_MoreContent_Playnwin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="content" Type="varchar" Mode="In" />
+    <Parameter Name="pagenumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_MoreContent_Playnwin_count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_QuizPlay_Subscribe_Unsubscribe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+    <Parameter Name="SubscriptionSource" Type="varchar" Mode="In" />
+    <Parameter Name="Reg_Status" Type="int" Mode="In" />
+    <Parameter Name="ActivationSource" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spGetMegaImageForQuizPlay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="operator" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetMonhtlWeeklyImageForQuizPlay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="operator" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetQuestionCountBYMSISDN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spGetQuestionCountBYMSISDNBonusHour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spGetQuizPlayIsTodayPlayedThriceByMSISDN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetQuizPlayMyAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetTodayHomeThemeMessageAndImage_new" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetTodayResultByMSISDN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetUserPlayingTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spGetUserPlayingTimeBonusHour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spGetUserResultDailyWeekly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="stratDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="spGetUserSession" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsert_QuizPlay_ACCESS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOURCE_URL" Type="varchar" Mode="In" />
+    <Parameter Name="SERVICE_REQUEST" Type="varchar" Mode="In" />
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+    <Parameter Name="HS_MANUFACTURER" Type="varchar" Mode="In" />
+    <Parameter Name="HS_MODEL" Type="varchar" Mode="In" />
+    <Parameter Name="HS_DIM" Type="varchar" Mode="In" />
+    <Parameter Name="APN" Type="varchar" Mode="In" />
+    <Parameter Name="PORTAL_FULLnSHORT" Type="varchar" Mode="In" />
+    <Parameter Name="CMPAIN_KEY" Type="varchar" Mode="In" />
+    <Parameter Name="IP" Type="varchar" Mode="In" />
+    <Parameter Name="OS" Type="varchar" Mode="In" />
+    <Parameter Name="UAHeader" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertQuizPlayVideoLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContentCode" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spInsertUserResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="TimeTaken" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayFeedback_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayGetTodayQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+    <Parameter Name="TodayThemeID" Type="bigint" Mode="In" />
+    <Parameter Name="QuestionID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayGetTodayQuestionByMSISDN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayGetTodayQuestionByMSISDNBonusHour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayGetTodayScoreCardNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayIsBonusHour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayMonthlyWinnersNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spQuizPlayWeeklyWinnersNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spScore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spScoreBonus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spUnsubricbeQuizPlayRobiAirtel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spUpdateFixRandomTheme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="spUpdateQuizPlayUserAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Answer" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="QuestionNo" Type="bigint" Mode="In" />
+    <Parameter Name="TimeTaken" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spUpdateQuizPlayUserAnswerBonusHour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Answer" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="MSISDN" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="QuestionNo" Type="bigint" Mode="In" />
+    <Parameter Name="TimeTaken" Type="bigint" Mode="In" />
+  </Function>
+  <EntityContainer Name="QpDbContextStoreContainer">
+    <EntitySet Name="Qp_Firebase_ClickLog_Tables" EntityType="Self.Qp_Firebase_ClickLog_Tables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Qp_Firebase_SendLog_Tables" EntityType="Self.Qp_Firebase_SendLog_Tables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_LiveChallenge_Log" EntityType="Self.tbl_LiveChallenge_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_LiveQuestionAnswer" EntityType="Self.tbl_LiveQuestionAnswer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QPFbInfo" EntityType="Self.tbl_QPFbInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QpIsLive" EntityType="Self.tbl_QpIsLive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QpTokenLog" EntityType="Self.tbl_QpTokenLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlay_Access_Log" EntityType="Self.tbl_QuizPlay_Access_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlay_BonusHour_Played" EntityType="Self.tbl_QuizPlay_BonusHour_Played" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlay_Live_MagicHour" EntityType="Self.tbl_QuizPlay_Live_MagicHour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlay_Played_Theme" EntityType="Self.tbl_QuizPlay_Played_Theme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlay_Played_Theme_Session" EntityType="Self.tbl_QuizPlay_Played_Theme_Session" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlay_PlayHit_Log" EntityType="Self.tbl_QuizPlay_PlayHit_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayDateThemeRelation" EntityType="Self.tbl_QuizPlayDateThemeRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayFixRandomTheme" EntityType="Self.tbl_QuizPlayFixRandomTheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayQuestions" EntityType="Self.tbl_QuizPlayQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayResult" EntityType="Self.tbl_QuizPlayResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayResultBonusHour" EntityType="Self.tbl_QuizPlayResultBonusHour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayTheme" EntityType="Self.tbl_QuizPlayTheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayUserAnswer" EntityType="Self.tbl_QuizPlayUserAnswer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlayUserAnswerBonusHour" EntityType="Self.tbl_QuizPlayUserAnswerBonusHour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Subscriber_QuizPlay" EntityType="Self.tbl_Subscriber_QuizPlay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Unsubscription" EntityType="Self.tbl_Unsubscription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QuizPlay_MyAccount" EntityType="Self.tbl_QuizPlay_MyAccount" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_QuizPlay_MyAccount].[ID] AS [ID], 
+    [tbl_QuizPlay_MyAccount].[MSISDN] AS [MSISDN], 
+    [tbl_QuizPlay_MyAccount].[Content] AS [Content], 
+    [tbl_QuizPlay_MyAccount].[Charge] AS [Charge], 
+    [tbl_QuizPlay_MyAccount].[TimeStamp] AS [TimeStamp]
+    FROM [dbo].[tbl_QuizPlay_MyAccount] AS [tbl_QuizPlay_MyAccount]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_QuizPlay_ThemeSet_Today" EntityType="Self.tbl_QuizPlay_ThemeSet_Today" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_QuizPlay_ThemeSet_Today].[ID] AS [ID], 
+    [tbl_QuizPlay_ThemeSet_Today].[ThemeID] AS [ThemeID], 
+    [tbl_QuizPlay_ThemeSet_Today].[MSISDN] AS [MSISDN], 
+    [tbl_QuizPlay_ThemeSet_Today].[TimeStamp] AS [TimeStamp]
+    FROM [dbo].[tbl_QuizPlay_ThemeSet_Today] AS [tbl_QuizPlay_ThemeSet_Today]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tbl_QuizPlayDateThemeRelation_tbl_QuizPlayTheme" Association="Self.FK_tbl_QuizPlayDateThemeRelation_tbl_QuizPlayTheme">
+      <End Role="tbl_QuizPlayTheme" EntitySet="tbl_QuizPlayTheme" />
+      <End Role="tbl_QuizPlayDateThemeRelation" EntitySet="tbl_QuizPlayDateThemeRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_QuizPlayUserAnswerBonusHour_tbl_QuizPlayQuestions" Association="Self.FK_tbl_QuizPlayUserAnswerBonusHour_tbl_QuizPlayQuestions">
+      <End Role="tbl_QuizPlayQuestions" EntitySet="tbl_QuizPlayQuestions" />
+      <End Role="tbl_QuizPlayUserAnswerBonusHour" EntitySet="tbl_QuizPlayUserAnswerBonusHour" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

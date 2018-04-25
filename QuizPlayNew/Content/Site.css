@@ -1,0 +1,48 @@
+﻿
+@font-face {
+      font-family: 'omnes-webfont';
+      src: url('../Fonts/omnes-webfont.ttf') format('truetype');
+  }
+.omnesFont {
+    /*! FONT-FAMILY: omnes-webfont; */
+    font-family: omnes webfont;
+}
+.headingText {
+    font-size: 45px;
+    font-weight: bold;
+}
+.questime {
+    font-size: 35px;
+    font-weight: bold;
+}
+.smallTextAbove {
+    font-size: 40px;
+    color: #747474;
+   
+}
+.roundBorder {
+    border-radius: 20px;
+    border: 5px solid #878787;
+    width: 97%;
+    /*height: 100px;*/
+    margin-left:30%;
+}
+.paddingTopBelow10 {
+    padding: 10px 0 10px 0;
+}
+.welcome {
+    font-size: 70px;
+    text-align: center;
+    height: 100px;
+    color: #000000;
+    vertical-align: central;
+    font-weight: bold;
+}
+.themeAlign {
+    font-size: 60px;
+    text-align: center;
+    color: #000000;
+    vertical-align: central;
+    margin-left: 30%;
+    margin: auto;
+}

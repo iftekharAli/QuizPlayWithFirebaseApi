@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "More";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<link href="~/Content/newSS.css" rel="stylesheet" />
+<script src="~/Scripts/More.js"></script>
+<div ng-controller="MoreController">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+          
+            <div class=" col-sm-6 col-xs-6 col-md-6 col-lg-6" ng-repeat="x in video">
+                <div class="prv">
+                    <div class="section1">
+                        <a href="../Home/Download?id={{x.contentcode}}">
+                            <img src='{{x.imageUrl}}' class="imgResizeTest" />
+                        </a>
+                               
+                        <a href="../Home/Download?id={{x.contentcode}}s">
+                            <img ID="ImagePlay"  src="~/Images/Icons/play-button.png" class="iplay img-responsive iRTest" />
+                                    
+                                                           
+                        </a>
+                                
+                        <span class="s-t" style="margin-top: 13%;font-size:31px">{{x.ContentTitle}}</span>
+                           
+
+                    </div>
+                            
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row" id="more">
+        <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <a class="btn btn-success" style="width: 85%;font-size:47px" href="@Url.Action("Default")">Home</a>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4"></div>
+            <div class="col-md-4 col-xs-4 col-sm-4" style="float: right" ng-show="m">
+                <a class="btn btn-danger" ID="btnmore" Height="35px" style="width: 85%;font-size:47px" ng-click="more()">More</a>
+
+            </div>
+        </div>
+    </div>
+</div>

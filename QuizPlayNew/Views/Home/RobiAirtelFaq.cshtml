@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "RobiFaq";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<style>
+    .heading{
+        font-size: 35px;
+        font-weight: bold;
+    }
+</style>
+<script src="~/Scripts/RobiAirtelFaq.js"></script>
+<div ng-controller="RobiAirtelFaqController">
+    <div class="row">
+        <div><h3 style="background-color:red" class="heading">Play N' Win FAQ</h3></div>
+    </div>
+    <div class="row">
+        <h3 class="heading">• What is Play N' Win?</h3>
+        <h3>• Play N’ Win is a combination of video streaming and online quiz games portal to watch free videos and play thematic quiz games to win prizes weekly and monthly. This quiz contest will test contestant’s knowledge on particular theme. There will be one weekly winner in every week based on their knowledge and speed. Also, there will be one mega winner on every month.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• What is Play N' Win address?</h3>
+        <h3>• The contest portal address will be <a href="http://quizplay.mobi/">http://quizplay.mobi/</a> </h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• How can users join the service?</h3>
+        <h3>• User can join service from portal (<a href="http://quizplay.mobi/">http://quizplay.mobi/</a>) or by sending SMS keyword.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• Activation Procedure:</h3>
+        <h3>{{start}}</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• What are the requirements to play Play N' Win?</h3>
+        <h3>• Any player must have a mobile internet connected phone and use browsers such as Chrome, Opera, Firefox.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading"> • What type of Questions will Play N' Win contest have?</h3>
+        <h3>• Contest will be image and text based questions. Besides all question will be MCQ type.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">  • Will Play N' Win daily contest have any question themes?</h3>
+        <h3>• Yes. The themes of the contest will change every day. Every day will set different themes. Randomly this theme will be change. Example themes are as follows: Sports, Celebrity, Music, Movies, History, Bangladesh, and Puzzle.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">   • How many questions will each contest have?</h3>
+        <h3>• Each contest will have daily minimum 40 questions. Player must answer all questions to complete contest. Incomplete play will not record score.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• How many winners will there be?</h3>
+        <h3>• Each contest will have one (1) winner weekly and  one (1) winner monthly.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• How many time's can play in a day?</h3>
+        <h3>• 3 times. Every times user will get new theme. Once you have answered all 40 questions you cannot play further for the day..</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• How will the winners be selected?</h3>
+        <h3>• Weekly & Monthly winners will be selected based on time frame and top score. Quickest and highest three scorers will be considered as winners respectively.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• How to deactivate the service?</h3>
+        <h3>• Service can be deactivated anytime by using unsubscribe button or sending deactivation SMS.</h3>
+    </div><div class="row">
+        <h3 class="heading">• Deactivation procedure:</h3>
+        <h3>{{stop}}</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading"> • How much is the charge to play Play N' Win?</h3>
+        <h3>• Subscription charging info:
+            Pricing TK 5(+VAT + SD & SC)/day.</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading"> • What is the helpline/hotline number?</h3>
+        <h3>{{helpline}}</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading"> • What is the support email address?</h3>
+        <h3>• Support mail : <a href="mailto:support@vumobile.biz" target="_top">support@vumobile.biz</a></h3>
+    </div>
+    <br />
+    <br />
+    <div class="row" style="margin-left:38%">
+        <div class="col-md-8 col-sm-8">
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Home.png" width="25%" /></a>
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+        </div>
+    </div>
+</div>
+

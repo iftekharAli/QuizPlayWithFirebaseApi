@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Finished";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<script src="~/Scripts/Finished.js"></script>
+<div ng-controller="FinishedController">
+    <div class="row text-center">
+        <img src={{text}} width="50%" ng-show="t" /><br/>
+        <b style="color: red;font-size:38px" ng-show="te">দুঃখিত ... আপনি একদিনে মাত্র ৩ বার খেলতে পারবেন </b><br/>
+        <img src="{{img}}" width="100%"/>
+    </div>
+</div>
+

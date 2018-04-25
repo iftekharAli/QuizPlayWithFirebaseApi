@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "QuizPlay";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="~/Scripts/QuizPlay.js"></script>
+<script>
+    var dbtime = 0;
+    function httpGet()
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", '../api/Master/GetUserPlayingTime', false ); // false for synchronous request
+        xmlHttp.send( null );
+        console.log(xmlHttp.responseText);
+       dbtime = JSON.parse(xmlHttp.responseText)[0];
+    }
+    httpGet();
+    //localStorage.clear();
+    var countDownDate = 0;
+    //console.log(localStorage.getItem("sec"));
+    //if (localStorage.getItem("sec")!=null) {
+    //    countDownDate = parseInt(localStorage.getItem("sec"));
+    //} else {
+
+    if (dbtime != null) {
+        console.log(dbtime);
+        countDownDate = dbtime;
+    }else{
+        countDownDate = 0;
+    }
+// Update the count down every 1 second
+    var x = setInterval(function() {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+    
+        // Find the distance between now an the count down date
+        var distance = countDownDate + now;
+    
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(countDownDate / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((countDownDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((countDownDate % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((countDownDate % (1000 * 60)) / 1000);
+    
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+        
+        
+        countDownDate = countDownDate + 1000;
+
+        document.getElementById("time").value = countDownDate;
+
+      
+        // If the count down is over, write some text 
+        if (countDownDate > 3600000) {;
+            clearInterval(x);
+            window.location.href = 'http://wap.shabox.mobi/quizplaynew/Home/Default';
+            
+        }
+    }, 1000);
+</script>
+<style>
+   
+     .myButton {
+         background-color: #F8F8F8;
+         -moz-border-radius: 10px;
+         -webkit-border-radius: 10px;
+         border-radius: 33px;
+         border: 1px solid #c9c9c9;
+         display: inline-block;
+         cursor: pointer;
+         color: #575757;
+         font-size: 60px;
+         padding: 38px 10px;
+         text-decoration: none;
+         text-shadow: 0px 1px 0px #a3a3a3;
+         min-width: 100%;
+         margin-top: 1%;
+         margin-bottom: 2%;
+         text-align: center;
+     }
+
+    .fafa {
+        font-size:60px
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+</style>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div  ng-controller="Controller">
+    <div class="row">
+        <input type="hidden" id="time" ng-value="time" value=""/>
+        <div class="col-md-6 col-sm-6">
+            <img src="~/Images/Quizplay_graphics/qmark.png"/><span class="questime">{{TotalQues}} of 40</span>
+        </div>
+        <div class="col-md-6 col-sm-6" style="text-align: right">
+            <img src="~/Images/Quizplay_graphics/clock.png"/><span class="questime" id="demo"></span>
+        </div>
+    </div>
+    
+    <div class="row">
+        <br />
+        <br />
+    </div>
+    <div ng-show="spinner" class="row text-center" >
+        <span style="font-size: 350px;"><i class="fa fa-spinner fa-spin fa-10x"></i></span>
+    </div>
+    <div ng-show="fullPage">
+        
+    
+    <div class="row" ng-show="Questions.QuestionImage!=''">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+            <img src="{{Questions.QuestionImage}}" width="100%" />
+        </div>
+    </div>
+    <div class="row" oncopy="return false" onpaste="return false" oncut="return false">
+        <div class="col-md-11 col-sm-11 col-md-offset-1 col-sm-offset-1">
+            <span class="headingText">{{Questions.Question}}</span><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+            <span class="smallTextAbove">উত্তর দিতে নিচের একটি অপসন ক্লিক করুন </span><br />
+        </div>
+    </div>
+
+    <div class="row" style="margin-left:48%">
+        <span ng-show="spin" style="font-size:40px"><i class="fa fa-spinner fa-spin fa-10x"></i></span>
+        <br/>
+        <br/>
+    </div>
+    <div class="row" ng-show="Questions.Option1!=''">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+            <button class="myButton omnesFont" ng-click="answer('Option1')">{{Questions.Option1}}</button><br/>
+        </div>
+    </div>
+    <div class="row" ng-show="Questions.Option2!=''">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+            <button class="myButton omnesFont" ng-click="answer('Option2')">{{Questions.Option2}}</button><br />
+        </div>
+    </div>
+    <div class="row" ng-show="Questions.Option3!=''">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+            <button class="myButton omnesFont" ng-click="answer('Option3')">{{Questions.Option3}}</button>
+        </div>
+    </div>
+    </div>
+    <div class="row" style="margin-left:38%">
+        <div class="col-md-8 col-sm-8">
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Home.png" width="25%" /></a>
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+        </div>
+    </div>
+    @*<div class="row">
+   
+    <div class="col-md-10 col-sm-10 col-md-offset-2 col-sm-offset-2">
+        
+        <button class="myButton omnesFont" ng-click="answer('Option2')">{{Questions.Option2}}</button><br/>
+        <button class="myButton omnesFont" ng-click="answer('Option3')">{{Questions.Option3}}</button>
+    </div>
+
+
+</div>*@
+
+</div>
+<script>
+    window.addEventListener("pageshow", function (event) {
+        var historyTraversal = event.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2);
+        if (historyTraversal) {
+            // Handle page restore.
+            window.location.href = 'http://wap.shabox.mobi/quizplaynew/Home/Default';
+        }
+    });
+</script>
+
+
+

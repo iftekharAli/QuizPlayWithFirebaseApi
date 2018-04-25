@@ -1,0 +1,301 @@
+﻿
+@{
+    ViewBag.Title = "ScoreCardView";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<script src="~/Scripts/ScoreCardView.js"></script>
+<style>
+    /*.headingText {
+        font-size: 60px;
+        font-weight: bold;
+    }*/
+     .prizeTitle {
+         border:1px solid;
+         padding-top: 10px;
+         background: red;
+         border-top-left-radius: 2em;
+         border-bottom-right-radius: 2em;
+         margin-left: 5%;
+         margin-right: 5%;
+         margin-top: 2%;
+         font-size:35px;       
+     }
+    .prizeSubScore {
+        border: 3px solid;
+        padding-top: 26px;
+        background: white;
+        border-top-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        margin-left: -6%;
+        margin-right: 1%;
+        margin-top: 5%;
+        padding-left: 18%;
+        padding-right: 40%;
+        font-size: 26px;
+    }
+</style>
+
+<div style="margin-left: 5%; margin-right: 5%" ng-controller="ScoreCardViewController">
+    <div class="row">
+        <div class="prizeTitle">
+            <div style="margin-bottom: 2%; text-align: center; color: white">
+                আপনার স্কোর কার্ড 
+                        
+            </div>
+
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>ধরণ</b> 
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>খেলোয়াড়</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                   <b>স্কোর</b> <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <div class="row" ng-repeat="x in DailyWeekly.data">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.type}}</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.msisdn}}</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.TotalRight}}</b><br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="prizeTitle">
+            <div style="margin-bottom: 2%; text-align: center; color: white">
+                প্রতিদিন স্কোর কার্ড 
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>খেলোয়াড়</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>স্কোর</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>সময়</b><br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <div class="row" ng-repeat="x in TodayScoreCard.data">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.MSISDN}}</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.TotalRight}}</b>
+                    
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.TimeTaken}}</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="prizeTitle">
+            <div style="margin-bottom: 2%; text-align: center; color: white">
+                সাপ্তাহিক  বিজয়ী
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-6">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>সময় ব্যাপ্তি</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>খেলোয়াড়</b> <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+<div class="row" ng-repeat="x in WeeklyWinner.data">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-6">
+        <div class="prizeSubScore">
+            <div style="margin-bottom: 2%; text-align: center; color: black">
+                <b>{{x.date}}</b>
+                <br />
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="prizeSubScore">
+            <div style="margin-bottom: 2%; text-align: center; color: black">
+                <b>{{x.MSISDN}}</b> <br />
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-1"></div>
+</div>
+<br />
+    <br />
+<div ng-show="month">
+    <div class="row">
+        <div class="prizeTitle">
+            <div style="margin-bottom: 2%; text-align: center; color: white">
+                মাসিক বিজয়ী
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-6">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>সময় ব্যাপ্তি</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>খেলোয়াড়</b> <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <div class="row" ng-repeat="x in MonthlyWiner.data">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-6">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.date}}</b>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="prizeSubScore">
+                <div style="margin-bottom: 2%; text-align: center; color: black">
+                    <b>{{x.MSISDN}}</b> <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+</div>
+<br />
+<br />
+<div class="row" style="margin-left:38%">
+    <div class="col-md-8 col-sm-8">
+        <a href="@Url.Action("Default")"><img src="~/Images/Quizplay_graphics/Home.png" width="25%" /></a>
+        <a href="@Url.Action("Default")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+    </div>
+</div>
+</div>

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Download";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<style type="text/css">
+    .st {
+        pointer-events: none;
+        cursor: text;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        display: block;
+        font-size:35px;
+    }
+</style>
+<script src="~/Scripts/Download.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<div ng-controller="DownloadController">
+    <div class="row">
+        <center>
+            <video id='example_video_1' width='100%' height='auto' controls preload='none' poster="@ViewBag.imageUrl" data-setup='{}'>
+                <source src="@ViewBag.video" type='video/mp4'>
+            </video>
+        </center>
+    </div>
+    <div class="row">
+        <div class='col-md-6 col-xs-6 col-sm-6' ng-repeat="y in rel">
+            <a class='thumbnail' href='../Home/Download?id={{y.contentcode}}'><img class='img-responsive' src='{{y.imageUrl}}' />
+                <span class='st'>{{y.ContentTitle}}</span>
+            </a>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="row" id="more">
+        <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <a class="btn btn-success" style="width: 85%;font-size:47px" href="@Url.Action("Default"))">Home</a>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4"></div>
+            <div class="col-md-4 col-xs-4 col-sm-4" style="float: right" ng-show="m">
+                <a class="btn btn-danger" ID="btnmore" Height="35px" style="width: 85%;font-size:47px" ng-click="more()">More</a>
+ 
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QpDbContextStoreContainer" CdmEntityContainer="Partner_BasketEntities">
+    <EntitySetMapping Name="tbl_QuizPlay_Access_Log">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_Access_Log">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_Access_Log">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SOURCE_URL" ColumnName="SOURCE_URL" />
+          <ScalarProperty Name="SERVICE_REQUEST" ColumnName="SERVICE_REQUEST" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="HS_MANUFACTURER" ColumnName="HS_MANUFACTURER" />
+          <ScalarProperty Name="HS_MODEL" ColumnName="HS_MODEL" />
+          <ScalarProperty Name="HS_DIM" ColumnName="HS_DIM" />
+          <ScalarProperty Name="APN" ColumnName="APN" />
+          <ScalarProperty Name="PORTAL_FULLnSHORT" ColumnName="PORTAL_FULLnSHORT" />
+          <ScalarProperty Name="CMPAIN_KEY" ColumnName="CMPAIN_KEY" />
+          <ScalarProperty Name="TIME_STAMP" ColumnName="TIME_STAMP" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="UAHeader" ColumnName="UAHeader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlay_Played_Theme">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_Played_Theme">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_Played_Theme">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlay_PlayHit_Log">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_PlayHit_Log">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_PlayHit_Log">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SOURCE_URL" ColumnName="SOURCE_URL" />
+          <ScalarProperty Name="SERVICE_REQUEST" ColumnName="SERVICE_REQUEST" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="HS_MANUFACTURER" ColumnName="HS_MANUFACTURER" />
+          <ScalarProperty Name="HS_MODEL" ColumnName="HS_MODEL" />
+          <ScalarProperty Name="HS_DIM" ColumnName="HS_DIM" />
+          <ScalarProperty Name="APN" ColumnName="APN" />
+          <ScalarProperty Name="PORTAL_FULLnSHORT" ColumnName="PORTAL_FULLnSHORT" />
+          <ScalarProperty Name="CMPAIN_KEY" ColumnName="CMPAIN_KEY" />
+          <ScalarProperty Name="TIME_STAMP" ColumnName="TIME_STAMP" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="UAHeader" ColumnName="UAHeader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayDateThemeRelation">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayDateThemeRelation">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayDateThemeRelation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayFixRandomTheme">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayFixRandomTheme">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayFixRandomTheme">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayQuestions">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayQuestions">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayQuestions">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="QuestionNo" ColumnName="QuestionNo" />
+          <ScalarProperty Name="QuestionThemeID" ColumnName="QuestionThemeID" />
+          <ScalarProperty Name="Ques_level" ColumnName="Ques_level" />
+          <ScalarProperty Name="QuestionImage" ColumnName="QuestionImage" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Option1" ColumnName="Option1" />
+          <ScalarProperty Name="Option2" ColumnName="Option2" />
+          <ScalarProperty Name="Option3" ColumnName="Option3" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayResult">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayResult">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayResult">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+          <ScalarProperty Name="TotalRight" ColumnName="TotalRight" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayResultBonusHour">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayResultBonusHour">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayResultBonusHour">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+          <ScalarProperty Name="TotalRight" ColumnName="TotalRight" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayTheme">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayTheme">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayTheme">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HomeTheme" ColumnName="HomeTheme" />
+          <ScalarProperty Name="HomeThemeImage" ColumnName="HomeThemeImage" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayUserAnswer">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayUserAnswer">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayUserAnswer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+          <ScalarProperty Name="isCompleted" ColumnName="isCompleted" />
+          <ScalarProperty Name="HS_MODEL" ColumnName="HS_MODEL" />
+          <ScalarProperty Name="HS_MANUFACTURER" ColumnName="HS_MANUFACTURER" />
+          <ScalarProperty Name="HS_DIM" ColumnName="HS_DIM" />
+          <ScalarProperty Name="APN" ColumnName="APN" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="UAHeader" ColumnName="UAHeader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlayUserAnswerBonusHour">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlayUserAnswerBonusHour">
+        <MappingFragment StoreEntitySet="tbl_QuizPlayUserAnswerBonusHour">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+          <ScalarProperty Name="isCompleted" ColumnName="isCompleted" />
+          <ScalarProperty Name="HS_MODEL" ColumnName="HS_MODEL" />
+          <ScalarProperty Name="HS_MANUFACTURER" ColumnName="HS_MANUFACTURER" />
+          <ScalarProperty Name="HS_DIM" ColumnName="HS_DIM" />
+          <ScalarProperty Name="APN" ColumnName="APN" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="UAHeader" ColumnName="UAHeader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlay_MyAccount">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_MyAccount">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_MyAccount">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Charge" ColumnName="Charge" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlay_ThemeSet_Today">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_ThemeSet_Today">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_ThemeSet_Today">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserSession" FunctionName="QpDbContext.Store.spGetUserSession" />
+    <FunctionImportMapping FunctionImportName="spQuizPlayGetTodayQuestionByMSISDN" FunctionName="QpDbContext.Store.spQuizPlayGetTodayQuestionByMSISDN" />
+    <FunctionImportMapping FunctionImportName="spQuizPlayGetTodayQuestion" FunctionName="QpDbContext.Store.spQuizPlayGetTodayQuestion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spQuizPlayGetTodayQuestion_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QuestionThemeID" ColumnName="QuestionThemeID" />
+          <ScalarProperty Name="QuestionImage" ColumnName="QuestionImage" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Option1" ColumnName="Option1" />
+          <ScalarProperty Name="Option2" ColumnName="Option2" />
+          <ScalarProperty Name="Option3" ColumnName="Option3" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetQuestionCountBYMSISDN" FunctionName="QpDbContext.Store.spGetQuestionCountBYMSISDN" />
+    <FunctionImportMapping FunctionImportName="spGetTodayHomeThemeMessageAndImage_new" FunctionName="QpDbContext.Store.spGetTodayHomeThemeMessageAndImage_new">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spGetTodayHomeThemeMessageAndImage_new_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HomeTheme" ColumnName="HomeTheme" />
+          <ScalarProperty Name="HomeThemeImage" ColumnName="HomeThemeImage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdateFixRandomTheme" FunctionName="QpDbContext.Store.spUpdateFixRandomTheme" />
+    <FunctionImportMapping FunctionImportName="spGetUserPlayingTime" FunctionName="QpDbContext.Store.spGetUserPlayingTime" />
+    <EntitySetMapping Name="tbl_QuizPlay_Played_Theme_Session">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_Played_Theme_Session">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_Played_Theme_Session">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserResultDailyWeekly" FunctionName="QpDbContext.Store.spGetUserResultDailyWeekly">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spGetUserResultDailyWeekly_Result">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+          <ScalarProperty Name="TotalRight" ColumnName="TotalRight" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spQuizPlayGetTodayScoreCardNew" FunctionName="QpDbContext.Store.spQuizPlayGetTodayScoreCardNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spQuizPlayGetTodayScoreCardNew_Result">
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="TotalRight" ColumnName="TotalRight" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spQuizPlayMonthlyWinnersNew" FunctionName="QpDbContext.Store.spQuizPlayMonthlyWinnersNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spQuizPlayMonthlyWinnersNew_Result">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spQuizPlayWeeklyWinnersNew" FunctionName="QpDbContext.Store.spQuizPlayWeeklyWinnersNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spQuizPlayWeeklyWinnersNew_Result">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetQuizPlayMyAccount" FunctionName="QpDbContext.Store.spGetQuizPlayMyAccount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spGetQuizPlayMyAccount_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Charge" ColumnName="Charge" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spQuizPlayFeedback_Insert" FunctionName="QpDbContext.Store.spQuizPlayFeedback_Insert" />
+    <FunctionImportMapping FunctionImportName="spInsertUserResult" FunctionName="QpDbContext.Store.spInsertUserResult" />
+    <FunctionImportMapping FunctionImportName="spUpdateQuizPlayUserAnswer" FunctionName="QpDbContext.Store.spUpdateQuizPlayUserAnswer" />
+    <FunctionImportMapping FunctionImportName="spScore" FunctionName="QpDbContext.Store.spScore">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spScore_Result">
+          <ScalarProperty Name="TotalRight" ColumnName="TotalRight" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetMegaImageForQuizPlay" FunctionName="QpDbContext.Store.spGetMegaImageForQuizPlay" />
+    <FunctionImportMapping FunctionImportName="sp_fullvideoCatagory_cznew_test" FunctionName="QpDbContext.Store.sp_fullvideoCatagory_cznew_test">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_fullvideoCatagory_cznew_test_Result">
+          <ScalarProperty Name="LiveDate" ColumnName="LiveDate" />
+          <ScalarProperty Name="contentcode" ColumnName="contentcode" />
+          <ScalarProperty Name="catgorycode" ColumnName="catgorycode" />
+          <ScalarProperty Name="ContentTitle" ColumnName="ContentTitle" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="physicalfilename" ColumnName="physicalfilename" />
+          <ScalarProperty Name="zid" ColumnName="zid" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="totalLike" ColumnName="totalLike" />
+          <ScalarProperty Name="totalView" ColumnName="totalView" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetVideoUrl" FunctionName="QpDbContext.Store.sp_GetVideoUrl">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_GetVideoUrl_Result">
+          <ScalarProperty Name="physicalfilename" ColumnName="physicalfilename" />
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="video" ColumnName="video" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_MoreContent_Playnwin" FunctionName="QpDbContext.Store.sp_MoreContent_Playnwin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_MoreContent_Playnwin_Result">
+          <ScalarProperty Name="contentcode" ColumnName="contentcode" />
+          <ScalarProperty Name="catgorycode" ColumnName="catgorycode" />
+          <ScalarProperty Name="ContentTitle" ColumnName="ContentTitle" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="physicalfilename" ColumnName="physicalfilename" />
+          <ScalarProperty Name="zid" ColumnName="zid" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="LiveDate" ColumnName="LiveDate" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="totalLike" ColumnName="totalLike" />
+          <ScalarProperty Name="totalView" ColumnName="totalView" />
+          <ScalarProperty Name="isHD" ColumnName="isHD" />
+          <ScalarProperty Name="totaldownload" ColumnName="totaldownload" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_MoreContent_Playnwin_count" FunctionName="QpDbContext.Store.sp_MoreContent_Playnwin_count" />
+    <FunctionImportMapping FunctionImportName="spInsertQuizPlayVideoLog" FunctionName="QpDbContext.Store.spInsertQuizPlayVideoLog" />
+    <FunctionImportMapping FunctionImportName="spGetMonhtlWeeklyImageForQuizPlay" FunctionName="QpDbContext.Store.spGetMonhtlWeeklyImageForQuizPlay" />
+    <FunctionImportMapping FunctionImportName="spGetQuizPlayIsTodayPlayedThriceByMSISDN" FunctionName="QpDbContext.Store.spGetQuizPlayIsTodayPlayedThriceByMSISDN" />
+    <FunctionImportMapping FunctionImportName="spGetTodayResultByMSISDN" FunctionName="QpDbContext.Store.spGetTodayResultByMSISDN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spGetTodayResultByMSISDN_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+          <ScalarProperty Name="TotalRight" ColumnName="TotalRight" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Subscriber_QuizPlay">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_Subscriber_QuizPlay">
+        <MappingFragment StoreEntitySet="tbl_Subscriber_QuizPlay">
+          <ScalarProperty Name="Is6888" ColumnName="Is6888" />
+          <ScalarProperty Name="IsGraceDeactivate" ColumnName="IsGraceDeactivate" />
+          <ScalarProperty Name="isGrace" ColumnName="isGrace" />
+          <ScalarProperty Name="Source_URL_OA" ColumnName="Source_URL_OA" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="ACB" ColumnName="ACB" />
+          <ScalarProperty Name="ActivationSource" ColumnName="ActivationSource" />
+          <ScalarProperty Name="Subs_Pack" ColumnName="Subs_Pack" />
+          <ScalarProperty Name="Confirmation" ColumnName="Confirmation" />
+          <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+          <ScalarProperty Name="MODIFY_COUNT" ColumnName="MODIFY_COUNT" />
+          <ScalarProperty Name="REG_AUTO" ColumnName="REG_AUTO" />
+          <ScalarProperty Name="LastChargedDate" ColumnName="LastChargedDate" />
+          <ScalarProperty Name="Charge_Status" ColumnName="Charge_Status" />
+          <ScalarProperty Name="Reg_Status" ColumnName="Reg_Status" />
+          <ScalarProperty Name="DeactivationDate" ColumnName="DeactivationDate" />
+          <ScalarProperty Name="ReactivationDate" ColumnName="ReactivationDate" />
+          <ScalarProperty Name="Reg_Date" ColumnName="Reg_Date" />
+          <ScalarProperty Name="SubscriptionSource" ColumnName="SubscriptionSource" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="SubscriberID" ColumnName="SubscriberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spQuizPlayIsBonusHour" FunctionName="QpDbContext.Store.spQuizPlayIsBonusHour">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spQuizPlayIsBonusHour_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Hour" ColumnName="Hour" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DayPart" ColumnName="DayPart" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_QuizPlay_BonusHour_Played">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_BonusHour_Played">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_BonusHour_Played">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserPlayingTimeBonusHour" FunctionName="QpDbContext.Store.spGetUserPlayingTimeBonusHour" />
+    <FunctionImportMapping FunctionImportName="spQuizPlayGetTodayQuestionByMSISDNBonusHour" FunctionName="QpDbContext.Store.spQuizPlayGetTodayQuestionByMSISDNBonusHour">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spQuizPlayGetTodayQuestionByMSISDNBonusHour_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QuestionThemeID" ColumnName="QuestionThemeID" />
+          <ScalarProperty Name="QuestionImage" ColumnName="QuestionImage" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Option1" ColumnName="Option1" />
+          <ScalarProperty Name="Option2" ColumnName="Option2" />
+          <ScalarProperty Name="Option3" ColumnName="Option3" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdateQuizPlayUserAnswerBonusHour" FunctionName="QpDbContext.Store.spUpdateQuizPlayUserAnswerBonusHour" />
+    <FunctionImportMapping FunctionImportName="spGetQuestionCountBYMSISDNBonusHour" FunctionName="QpDbContext.Store.spGetQuestionCountBYMSISDNBonusHour" />
+    <FunctionImportMapping FunctionImportName="spScoreBonus" FunctionName="QpDbContext.Store.spScoreBonus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.spScoreBonus_Result">
+          <ScalarProperty Name="TotalRight" ColumnName="TotalRight" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_QuizPlay_Subscribe_Unsubscribe" FunctionName="QpDbContext.Store.sp_QuizPlay_Subscribe_Unsubscribe" />
+    <FunctionImportMapping FunctionImportName="spUnsubricbeQuizPlayRobiAirtel" FunctionName="QpDbContext.Store.spUnsubricbeQuizPlayRobiAirtel" />
+    <EntitySetMapping Name="tbl_Unsubscription">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_Unsubscription">
+        <MappingFragment StoreEntitySet="tbl_Unsubscription">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_QuizPlay_ACCESS" FunctionName="QpDbContext.Store.spInsert_QuizPlay_ACCESS" />
+    <EntitySetMapping Name="tbl_LiveQuestionAnswer">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_LiveQuestionAnswer">
+        <MappingFragment StoreEntitySet="tbl_LiveQuestionAnswer">
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetLiveQuestions" FunctionName="QpDbContext.Store.sp_GetLiveQuestions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_GetLiveQuestions_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QuestionThemeID" ColumnName="QuestionThemeID" />
+          <ScalarProperty Name="QuestionImage" ColumnName="QuestionImage" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Option1" ColumnName="Option1" />
+          <ScalarProperty Name="Option2" ColumnName="Option2" />
+          <ScalarProperty Name="Option3" ColumnName="Option3" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetTotalLiveRightAnswer" FunctionName="QpDbContext.Store.sp_GetTotalLiveRightAnswer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_GetTotalLiveRightAnswer_Result">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="RightAnswer" ColumnName="RightAnswer" />
+          <ScalarProperty Name="WrongAnswer" ColumnName="WrongAnswer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_QPFbInfo">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QPFbInfo">
+        <MappingFragment StoreEntitySet="tbl_QPFbInfo">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FbImageUrl" ColumnName="FbImageUrl" />
+          <ScalarProperty Name="FbName" ColumnName="FbName" />
+          <ScalarProperty Name="FbId" ColumnName="FbId" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetUserLiveResult" FunctionName="QpDbContext.Store.sp_GetUserLiveResult">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_GetUserLiveResult_Result">
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="RightAnswer" ColumnName="RightAnswer" />
+          <ScalarProperty Name="WrongAnswer" ColumnName="WrongAnswer" />
+          <ScalarProperty Name="TotalAnswer" ColumnName="TotalAnswer" />
+          <ScalarProperty Name="TimeTakenInSecond" ColumnName="TimeTakenInSecond" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_QpIsLive">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QpIsLive">
+        <MappingFragment StoreEntitySet="tbl_QpIsLive">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="FbId" ColumnName="FbId" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QpTokenLog">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QpTokenLog">
+        <MappingFragment StoreEntitySet="tbl_QpTokenLog">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="FbId" ColumnName="FbId" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QuizPlay_Live_MagicHour">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_QuizPlay_Live_MagicHour">
+        <MappingFragment StoreEntitySet="tbl_QuizPlay_Live_MagicHour">
+          <ScalarProperty Name="DayPart" ColumnName="DayPart" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Hour" ColumnName="Hour" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Qp_Firebase_SendLog_Tables">
+      <EntityTypeMapping TypeName="QpDbContext.Qp_Firebase_SendLog_Tables">
+        <MappingFragment StoreEntitySet="Qp_Firebase_SendLog_Tables">
+          <ScalarProperty Name="RefId" ColumnName="RefId" />
+          <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Qp_Firebase_ClickLog_Tables">
+      <EntityTypeMapping TypeName="QpDbContext.Qp_Firebase_ClickLog_Tables">
+        <MappingFragment StoreEntitySet="Qp_Firebase_ClickLog_Tables">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="RefId" ColumnName="RefId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LiveChallenge_Log">
+      <EntityTypeMapping TypeName="QpDbContext.tbl_LiveChallenge_Log">
+        <MappingFragment StoreEntitySet="tbl_LiveChallenge_Log">
+          <ScalarProperty Name="AcceptedTime" ColumnName="AcceptedTime" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="FbIdReceiver" ColumnName="FbIdReceiver" />
+          <ScalarProperty Name="FbIdSender" ColumnName="FbIdSender" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetLiveUserList1" FunctionName="QpDbContext.Store.sp_GetLiveUserList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_GetLiveUserList1_Result">
+          <ScalarProperty Name="FbId" ColumnName="FbId" />
+          <ScalarProperty Name="FbName" ColumnName="FbName" />
+          <ScalarProperty Name="FbImageUrl" ColumnName="FbImageUrl" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<style>
+    .heading {
+        font-size: 35px;
+        font-weight: bold;
+    }
+</style>
+<script src="~/Scripts/Feedback.js"></script>
+<div ng-controller="FeedbackController">
+    <div class="row">
+        <div><h3 style="background-color:red" class="heading">Feedback</h3></div>
+    </div>
+    <div class="row" ng-show="n">
+        <h3 style="color:red" class="heading">{{msg}}</h3>
+    </div>
+    <div class="row text-center">
+        <span style="font-size:40px">Mobile No:</span>&nbsp;<input style="font-size:40px" type="text" value="{{msisdn}}" disabled ng-model="msisdn"/>
+        </div>
+    <br />
+    <br/>
+    <br />
+    <br />
+    <div class="row text-center">
+        <span style="font-size:40px">Message: </span><textarea style="font-size:40px" ng-model="message" required></textarea>
+    </div>
+    <br />
+    <br />
+    <div class="row text-center">
+        <a ng-click="submit()"><img src="~/Images/Icons/btn-Submit.png" width="30%" /></a>
+    </div>
+    <br />
+    <div class="row" style="margin-left:38%">
+        <div class="col-md-8 col-sm-8">
+            <a href="@Url.Action("Default")"><img src="~/Images/Quizplay_graphics/Home.png" width="25%" /></a>
+            <a href="@Url.Action("Default")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+        </div>
+    </div>
+    </div>
+

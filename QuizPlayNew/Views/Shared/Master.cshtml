@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Master";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+<style>
+    /*.con {
+        display: flex;
+    }
+    .con > div {
+        flex: 1; 
+    }*/
+    /*.con>div {
+        display: table;
+        margin-right: auto;
+        margin-left: auto;
+    }*/
+    </style>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<body  ng-app="App" ng-controller="MasterController1" >
+<header>
+    <a href="@Url.Action("Default","Home")"><img src="{{Header}}" width="100%" /></a>
+</header>
+<div class="container" style="max-width: 100%">
+
+
+    @RenderBody()
+
+</div>
+    
+<footer  style="background-color: #c2c2c2">
+    <div class="row">
+        <div class="col-md-4 col-sm-4"><a href="@Url.Content("~/"){{FaqUrl}}"><img src="~/Images/QQ/FAQ.png"/></a>
+        </div>
+        <div class="col-md-4 col-sm-4"><a href="@Url.Content("~/Home/TermsCondition")"><img src="~/Images/QQ/t&c.png"/></a>
+        </div>
+        <div class="col-md-4 col-sm-4"><a href="@Url.Content("~/"){{AccountQuestionUrl}}"><img src="{{AccountQuestionImage}}"/></a>
+        </div>
+    </div>
+
+</footer>
+</body>
+
+<script>
+   
+    app.controller('MasterController1',
+        function ($scope, $http) {
+            $http.get('http://wap.shabox.mobi/quizplaynew//api/Master/getHeaderFooterImage').then(function (response) {
+
+
+                console.log(response);
+                $scope.Header = response.data.HeaderImage;
+                $scope.AccountQuestionImage = response.data.AccountQuestionImage;
+                $scope.AccountQuestionUrl = response.data.AccountQuestionUrl;
+                $scope.FaqUrl = response.data.FaqUrl;
+            });
+
+
+            $http.post(api + '/api/Master/AccessLog?sourceurl=' + document.URL +
+                '&useragent=' + navigator.userAgent).then(
+                function (response) {
+
+                   
+                });
+        });
+</script>

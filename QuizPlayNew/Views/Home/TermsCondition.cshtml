@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "TermsCondition";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<style>
+    .heading {
+        font-size: 35px;
+        font-weight: bold;
+    }
+</style>
+<script src="~/Scripts/TermsCondtion.js"></script>
+<div ng-controller="TermsCondtionController">
+    <div class="row">
+        <div><h3 style="background-color:red" class="heading">Terms & Condtions</h3></div>
+    </div>
+    <div class="row">
+        <h3 class="heading">{{name}} সাপ্তাহিক সময় ব্যাপ্তি ( শুক্রবার হতে বৃহস্পতিবার )</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">{{name}} তে একজন প্লেয়ার একের অধিক সিম / মোবাইল নম্বর দিয়ে খেলতে পারবেন না কনটেস্ট চলাকালীন | যদি কোনো প্লেয়ার একের অধিক সিম / মোবাইল নম্বর দিয়ে খেলে তবে ওই প্লেয়ার কে  বিজয়ী (Winner) হতে ডিসকোয়ালিফাই করা হবে </h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">{{name}} • প্রত্যেক কনটেস্ট এ প্রতিদিন  সর্বনিন্ম ৪০ টি  প্রশ্ন থাকবে | কনটেস্ট কমপ্লিট করতে হলে প্লেয়ার কে অবশই ৪০ টি  প্রশ্নের উত্তর দিতে হবে | ৪০টি  প্রশ্নের উত্তর না দিলে তার স্কোর - স্কোর বোর্ড এ দেখানো হবে না </h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">{{name}} খেলার জন্য শুধুমাত্র মোবাইল ফোন গ্রহণ যোগ্য | {{name}} খেলার জন্য  ডেস্কটপ / ল্যাপটপ  গ্রহণ যোগ্য নয় | যদি কোনো প্লেয়ার কে  ডেস্কটপ / ল্যাপটপ হতে খেলতে পাওয়া যাই তবে তাকে ডিসকোয়ালিফাই করা হবে</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">{{name}} • সাপ্তাহিক বিজয়ীকে বিজ্ঞাপনের 24 ঘন্টার মধ্যে পুরস্কার দাবি করতে হবে এবং প্রয়োজন অনুযায়ী প্রয়োজনীয় বিবরণ প্রদান করতে হবে। বিজয়ী যাচাই করার জন্য এনআইডি / পাসপোর্ট কপি এবং সিম রেজিস্ট্রেশন কাগজ প্রয়োজন সাবমিট করতে হবে </h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">{{samtahik}}</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">•আমাদের সাপ্তাহিক / মাসিক বিজয়ী নির্ধারিত সময় দ্বারা তাদের পুরস্কারগুলি সংগ্রহ করতে আসতে হবে এবং যদি কোনও বিজয়ী তাদের পুরস্কারগুলি দাবি করতে না পারে তবে তাকে অযোগ্য ঘোষণা করা হবে।</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• সাবস্ক্রিপশন চার্জ (15% ভ্যাট):</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">•  দৈনিক {{pricea}} + (ভ্যাট + এসডি ও এসসি) / অটো-রিনিউয়াল</h3>
+    </div>
+    <div class="row" ng-show="na">
+        <h3 class="heading">•  দৈনিক {{pricen}} + (ভ্যাট + এসডি ও এসসি) /নন অটো-রিনিউয়াল </h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• অ্যাক্টিভেশন পদ্ধতি :</h3>
+        <h3>{{start}}</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• ডিএক্টিভেশন পদ্ধতি:</h3>
+        <h3>{{stop}}</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• হেল্পলাইন :</h3>
+        <h3>{{helpline}}</h3>
+    </div>
+    <div class="row">
+        <h3 class="heading">• সাপোর্ট  মেইল :</h3>
+        <h3><a href="mailto:support@vumobile.biz">support@vumobile.biz</a></h3>
+    </div>
+    <br />
+    <br />
+    <div class="row" style="margin-left:38%">
+        <div class="col-md-8 col-sm-8">
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Home.png" width="25%" /></a>
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Default";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<style>
+    .test {
+        width: 29%;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 2%;
+    }
+</style>
+
+<link href="~/Content/newSS.css" rel="stylesheet" />
+<script src="~/Scripts/Default.js"></script>
+<div ng-controller="DefaultController">
+    <div class="row text-center" ng-show="bonus">
+        <a ng-click="bonushour()"><img src="~/Images/bonusButton.gif" width="20%" /></a>
+    </div>
+    <div class="row text-center">
+        <img src="~/Images/Quizplay_graphics/intro_pic.jpg" width="50%" />
+    </div>
+    <div class="row text-center">
+        <label style="font-size:30px">{{msisdn}}</label>
+    </div>
+    <div class="row text-center" ng-click="subscribe()" ng-show="b">
+        <a><img src="~/Images/Quizplay_graphics/blink.png" width="80%" /></a>
+    </div>
+    <div class="row text-center" ng-click="subscribe()" ng-show="ra">
+        <a><img src="~/Images/Quizplay_graphics/auto.png" width="80%" /></a>
+    </div>
+    <br />
+    <div class="row text-center" ng-show="r" ng-click="subscribe()">
+        <a><img src="~/Images/Quizplay_graphics/nonauto.png" width="80%" /></a>
+    </div>
+    <div class="row text-center">
+        <a href="@Url.Action("ThemeToday")"><img src="~/Images/Quizplay_graphics/start_button.png" width="50%" /></a>
+    </div>
+    <div class="row text-center" ng-show="protidin">
+        <a><img src="~/Images/Quizplay_graphics/protidin_puroshkar.png" width="50%" /></a>
+    </div>
+    <div class="row text-center">
+        <h2 style="color:red;text-align:center">একের অধিক সিম দিয়ে কুইজ খেললে তাদের  Winner হতে ডিসকোয়ালিফাই করা হবে !</h2>
+    </div>
+    <div class="row text-center" ng-show="bd">
+        <img src="~/Images/Quizplay_graphics/1p.png" class="test" />
+        <img src="~/Images/Quizplay_graphics/2p.png" class="test" />
+        <img src="~/Images/Quizplay_graphics/3p.png" class="test" />
+    </div>
+    <div class="row text-center">
+        <img src="~/Images/Quizplay_graphics/weekly.png" width="50%" />
+    </div>
+    <div class="row text-center">
+        <img src="{{week}}" width="90%" />
+    </div>
+    <div ng-show="ram">
+        <div class="row text-center">
+            <img src="~/Images/Quizplay_graphics/monthly.png" width="50%" />
+        </div>
+        <div class="row text-center">
+            <img src="{{month}}" width="90%" />
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <a href="@Url.Action("Prizes")"><img src="~/Images/Quizplay_graphics/prize_button.png" width="80%" /></a><br />
+            <a href="@Url.Action("ScoreCardView")"><img src="~/Images/Quizplay_graphics/score_button.png" width="80%" /></a><br /><br />
+
+        </div>
+        <div class="col-sm-4" ng-show="bd">
+            <a href="https://www.facebook.com/QUIZ-PLAY-123333198075820/" runat="server" id="facebook"><img src="~/Images/Quizplay_graphics/qplay_facebook.jpg" width="80%" /></a>
+        </div>
+        <div class="col-sm-2"></div>
+
+    </div>
+    <div ng-show="ravideo">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+
+                <div class=" col-sm-4 col-xs-4 col-md-4 col-lg-4" ng-repeat="x in video">
+                    <div class="prv">
+                        <div class="section1">
+                            <a href="http://wap.shabox.mobi/quizplaynew/Home/Download?id={{x.contentcode}}">
+                                <img ID="ImageContent" runat="server" ng-src="{{x.imageUrl}}" class="imgResizeTest" />
+                            </a>
+                            <a href="http://wap.shabox.mobi/quizplaynew/Home/Download?id={{x.contentcode}}">
+                                <img ID="ImagePlay" runat="server" src="~/Images/Icons/play-button.png" class="iplay img-responsive iRTest" />
+
+
+                            </a>
+
+                            <span class="s-t">{{x.ContentTitle}}</span>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row" id="more">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="col-md-4 col-xs-4 col-sm-4" ng-show="un">
+                    
+                </div>
+                <div class="col-md-4 col-xs-4 col-sm-4"></div>
+                <div class="col-md-4 col-xs-4 col-sm-4" style="float: right">
+                    <a class="btn btn-danger" ID="btnmore" Height="35px" style="width: 85%;font-size:47px" href="@Url.Action("More","Home")">More</a>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        
+    </div>
+    <div class="row text-center">
+        <div ng-show="un">
+            <a class="btn btn-danger" style="width: 50%;font-size:47px" ng-click="unsubscribe()">Unsubscribe</a>
+        </div>
+    </div>
+    <br />
+    <div class="text-center"><span style="font-size: 2.9em;font-weight:bold" class="text-center">{{numberOfPlay}}</span></div>
+</div>

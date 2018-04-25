@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "ScoreView";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<script src="~/Scripts/ScoreView.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<div ng-controller="ScoreViewController">
+    
+    <div class="row">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" 
+             style="background-color: red; margin-top: 18%; height: 31%;margin-bottom:25%">
+            <div style="text-align: center; margin-top: 14%;font-size:83px">
+                <span id="answerCorrect" style="color: white; margin: 0 0 0 -175px;">
+                    <img src="~/Images/Quizplay_graphics/correct_mark.png" style="width: 83px; height: 70px" />
+                    <sup>
+                        {{totalright}}</sup>&frasl;<sub> <label ID="lblRegular">40</label></sub></span>
+                <br />
+                <span id="timeTake" style="color: white; margin: 0 0 0 33px;">
+                    <img src="~/Images/Quizplay_graphics/clock2.png" style="width: 83px; height: 70px" />
+                    <label ID="timeTaken">{{time}} মিনিট</label>
+                </span>
+
+            </div>
+        </div>
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" >
+            <div style="text-align:center">
+                <a href="@Url.Action("ScoreCardView")"><img src="~/Images/Quizplay_graphics/score_button.png" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-left:38%">
+        <div class="col-md-8 col-sm-8">
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Home.png" width="25%" /></a>
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+        </div>
+    </div>
+</div>
+    
+
+    @*<div style="position: center; align-items: center; align-content: center; margin-left: 43%;">
+        <div id="divImg" style="background-image: url(http://localhost:3470/Images/Quizplay_graphics/tt.gif); background-repeat: no-repeat;background-size: contain;width: 100%;height: 0;padding-top: 66.64%;">
+            
+            <br />
+            <div style="">
+                <span id="answerCorrect" style="color: white; margin: 0 0 0 33px;">
+                    <img src="~/Images/Quizplay_graphics/correct_mark.png" style="width: 25px; height: 25px" />
+                    <sup>
+                        10</sup>&frasl;<sub> <label ID="lblRegular">40</label></sub>
+                </span>
+                <br />
+                <span id="timeTake" style="color: white; margin: 0 0 0 33px;">
+                    <img src="~/Images/Quizplay_graphics/clock2.png" style="width: 25px; height: 25px" />
+                    <label ID="timeTaken">5.10 মিনিট</label></span>
+
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </div>
+        </div>
+    </div>*@
+
+<script type="text/javascript">
+    //$(document)
+    //    .ready(
+    //        function () {
+    //            timetakeHide();
+    //            timetakeShow();
+    //            answerHide();
+    //            answerShow();
+    //            setTimeout(function () {
+
+
+    //                $('#divImg').css(
+    //                    {
+    //                        'background': 'url(http://localhost:3470/Images/Quizplay_graphics/asd.png)',
+
+    //                        'background-repeat': 'no-repeat',
+    //                        'width': '100%',
+    //                        'height': '0',
+    //                        'padding-top': '66.64%'
+    //                    }
+    //                );
+    //            }, 2100);
+    //        }
+
+
+
+    //    );
+
+
+    //function timetakeShow() {
+    //    setTimeout(function () { $('#timeTake').fadeIn(1000); }, 2300);
+    //};
+
+    //function answerShow() {
+    //    setTimeout(function () { $('#answerCorrect').fadeIn(1000); }, 2300);
+    //};
+    //function answerHide() {
+    //    setTimeout(function () { $('#timeTake').hide(); }, 0);
+    //};
+
+    //function timetakeHide() {
+    //    setTimeout(function () { $('#answerCorrect').hide(); }, 0);
+    //};
+</script>

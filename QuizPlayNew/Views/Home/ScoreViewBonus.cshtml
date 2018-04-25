@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "ScoreViewBous";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<script src="~/Scripts/ScoreViewBonus.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<div ng-controller="ScoreViewBonusController">
+    <div class="row">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" 
+             style="background-color: red; margin-top: 18%; height: 31%;margin-bottom:25%">
+            <div style="text-align: center; margin-top: 14%;font-size:83px">
+                <span id="answerCorrect" style="color: white; margin: 0 0 0 -175px;">
+                    <img src="~/Images/Quizplay_graphics/correct_mark.png" style="width: 83px; height: 70px" />
+                    <sup>
+                        {{totalright}}</sup>&frasl;<sub> <label ID="lblRegular">5</label></sub></span>
+                <br />
+                <span id="timeTake" style="color: white; margin: 0 0 0 33px;">
+                    <img src="~/Images/Quizplay_graphics/clock2.png" style="width: 83px; height: 70px" />
+                    <label ID="timeTaken">{{time}} মিনিট</label>
+                </span>
+
+            </div>
+        </div>
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" >
+            <div style="text-align:center">
+                <a href="@Url.Action("ScoreCardView")"><img src="~/Images/Quizplay_graphics/score_button.png" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-left:38%">
+        <div class="col-md-8 col-sm-8">
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Home.png" width="25%" /></a>
+            <a href="@Url.Action("")"><img src="~/Images/Quizplay_graphics/Exit.png" width="25%" /></a>
+        </div>
+    </div>
+</div>
+

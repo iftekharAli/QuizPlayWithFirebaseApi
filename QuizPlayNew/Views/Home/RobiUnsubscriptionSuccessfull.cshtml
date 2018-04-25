@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "RobiUnsubscriptionSuccessfull";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<script>
+    var app = angular.module('App', []);
+    app.config(['$qProvider', function ($qProvider) {
+        $qProvider.errorOnUnhandledRejections(false);
+    }]);
+</script>
+<div>
+    <div class="row text-center">
+        <h1>আপনার PLAY N WIN সার্ভিসটি সফল ভাবে বাতিল হয়েছে .</h1>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row text-center">
+        <a href="@Url.Action("Default")"><img src="~/Images/Icons/Robi/home.png" /></a>
+    </div>
+    <br />
+    <br />
+    <br />
+</div>
+

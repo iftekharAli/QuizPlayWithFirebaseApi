@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Robi_SDPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="RobiSDPContext" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="spInsertSubscriptionQ_To_SDP_channelID_1">
+      <Parameter Name="userID" Mode="In" Type="String" />
+      <Parameter Name="serviceId" Mode="In" Type="String" />
+      <Parameter Name="productID" Mode="In" Type="String" />
+      <Parameter Name="updateDesc" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

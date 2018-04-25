@@ -1,0 +1,714 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E710560B-50FB-4610-BA81-8F27659B44D2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuizPlayNew</RootNamespace>
+    <AssemblyName>QuizPlayNew</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaxMind.Db, Version=2.0.0.0, Culture=neutral, PublicKeyToken=66afa4cc5ae853ac" />
+    <Reference Include="MaxMind.GeoIP2, Version=2.6.0.0, Culture=neutral, PublicKeyToken=66afa4cc5ae853ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\MaxMind.GeoIP2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\QuizPlayNew.dll" />
+    <Content Include="bin\QuizPlayNew.pdb" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.Deployment.dll" />
+    <Content Include="bin\System.Web.Webpages.Deployment.xml" />
+    <Content Include="bin\System.Web.Webpages.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Blink.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Blink.edmx</DependentUpon>
+      <LastGenOutput>Blink.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Blink.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Blink.edmx</DependentUpon>
+      <LastGenOutput>Blink.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\newSS.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\bonusButton.gif" />
+    <Content Include="Images\Icons\01.png" />
+    <Content Include="Images\Icons\02.png" />
+    <Content Include="Images\Icons\03.png" />
+    <Content Include="Images\Icons\04.png" />
+    <Content Include="Images\Icons\05.png" />
+    <Content Include="Images\Icons\AllScores.png" />
+    <Content Include="Images\Icons\back.png" />
+    <Content Include="Images\Icons\backup\Exit.png" />
+    <Content Include="Images\Icons\backup\Home.png" />
+    <Content Include="Images\Icons\btn-Submit.png" />
+    <Content Include="Images\Icons\btnOK.png" />
+    <Content Include="Images\Icons\btnYesConfirm.png" />
+    <Content Include="Images\Icons\Click_to_Start.png" />
+    <Content Include="Images\Icons\Correct.png" />
+    <Content Include="Images\Icons\defaultQuestion.jpg" />
+    <Content Include="Images\Icons\defaultTheme.jpg" />
+    <Content Include="Images\Icons\Exit.png" />
+    <Content Include="Images\Icons\facebook.png" />
+    <Content Include="Images\Icons\Faq.png" />
+    <Content Include="Images\Icons\Home.png" />
+    <Content Include="Images\Icons\Mob.png" />
+    <Content Include="Images\Icons\MSISDNMissing.png" />
+    <Content Include="Images\Icons\msisdnNotFound.jpg" />
+    <Content Include="Images\Icons\Next_Question.png" />
+    <Content Include="Images\Icons\Next_Question_bg.png" />
+    <Content Include="Images\Icons\No.png" />
+    <Content Include="Images\Icons\play-button.png" />
+    <Content Include="Images\Icons\Play_Again.png" />
+    <Content Include="Images\Icons\Play_Now.png" />
+    <Content Include="Images\Icons\prizeCup.png" />
+    <Content Include="Images\Icons\qp_ok_30p.png" />
+    <Content Include="Images\Icons\qp_yes_confirm.png" />
+    <Content Include="Images\Icons\qp_yes_confirm_30p.png" />
+    <Content Include="Images\Icons\Qst.png" />
+    <Content Include="Images\Icons\Reload.png" />
+    <Content Include="Images\Icons\Robi\btn_Start_Prev.png" />
+    <Content Include="Images\Icons\Robi\cancell.png" />
+    <Content Include="Images\Icons\Robi\cancell_and_back_to_home.png" />
+    <Content Include="Images\Icons\Robi\cancell_massage.png" />
+    <Content Include="Images\Icons\Robi\charging_info.png" />
+    <Content Include="Images\Icons\Robi\charging_info_Prev.png" />
+    <Content Include="Images\Icons\Robi\Click_to_Start.png" />
+    <Content Include="Images\Icons\Robi\Click_to_Start_Prev.png" />
+    <Content Include="Images\Icons\Robi\Confirmation.jpg" />
+    <Content Include="Images\Icons\Robi\Exit.png" />
+    <Content Include="Images\Icons\Robi\home.png" />
+    <Content Include="Images\Icons\Robi\Play_now.png" />
+    <Content Include="Images\Icons\Robi\Reg.png" />
+    <Content Include="Images\Icons\Robi\reg_cancell.png" />
+    <Content Include="Images\Icons\Robi\reg_confirm.png" />
+    <Content Include="Images\Icons\Robi\Stop_Script_6000.png" />
+    <Content Include="Images\Icons\Robi\Stop_Script_6624.png" />
+    <Content Include="Images\Icons\Robi\Welcome.png" />
+    <Content Include="Images\Icons\Robi\yes_confirm.png" />
+    <Content Include="Images\Icons\Score_Board.png" />
+    <Content Include="Images\Icons\telephone.jpg" />
+    <Content Include="Images\Icons\twiter.png" />
+    <Content Include="Images\Icons\View_Scores.png" />
+    <Content Include="Images\Icons\Wrong.png" />
+    <Content Include="Images\Icons\Yes.png" />
+    <Content Include="Images\khelun.png" />
+    <Content Include="Images\play_n_win.jpg" />
+    <Content Include="Images\QQ\FAQ.png" />
+    <Content Include="Images\QQ\q.png" />
+    <Content Include="Images\QQ\t&amp;c.png" />
+    <Content Include="Images\Quizplay_graphics\100.png" />
+    <Content Include="Images\Quizplay_graphics\1p.png" />
+    <Content Include="Images\Quizplay_graphics\1st_prize.jpg" />
+    <Content Include="Images\Quizplay_graphics\200.png" />
+    <Content Include="Images\Quizplay_graphics\2p.png" />
+    <Content Include="Images\Quizplay_graphics\300.png" />
+    <Content Include="Images\Quizplay_graphics\3p.png" />
+    <Content Include="Images\Quizplay_graphics\account.png" />
+    <Content Include="Images\Quizplay_graphics\asd.png" />
+    <Content Include="Images\Quizplay_graphics\auto.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\100.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\1st_prize.jpg" />
+    <Content Include="Images\Quizplay_graphics\BackUp\200.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\300.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\khelun.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\podium.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\prize_button.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\protidin_puroshkar.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\qplay_facebook.jpg" />
+    <Content Include="Images\Quizplay_graphics\BackUp\score_button.png" />
+    <Content Include="Images\Quizplay_graphics\BackUp\start_button.png" />
+    <Content Include="Images\Quizplay_graphics\bar1.png" />
+    <Content Include="Images\Quizplay_graphics\blcok3.png" />
+    <Content Include="Images\Quizplay_graphics\block1.png" />
+    <Content Include="Images\Quizplay_graphics\block2.png" />
+    <Content Include="Images\Quizplay_graphics\block4.png" />
+    <Content Include="Images\Quizplay_graphics\blocked.png" />
+    <Content Include="Images\Quizplay_graphics\cartoon1.gif" />
+    <Content Include="Images\Quizplay_graphics\cartoon1.png" />
+    <Content Include="Images\Quizplay_graphics\cartoon2.gif" />
+    <Content Include="Images\Quizplay_graphics\cartoon2.png" />
+    <Content Include="Images\Quizplay_graphics\clock.png" />
+    <Content Include="Images\Quizplay_graphics\clock2.png" />
+    <Content Include="Images\Quizplay_graphics\correct_mark.png" />
+    <Content Include="Images\Quizplay_graphics\dp.png" />
+    <Content Include="Images\Quizplay_graphics\Exit.png" />
+    <Content Include="Images\Quizplay_graphics\FAQ.png" />
+    <Content Include="Images\Quizplay_graphics\footer.jpg" />
+    <Content Include="Images\Quizplay_graphics\Home.png" />
+    <Content Include="Images\Quizplay_graphics\intro_pic-2.jpg" />
+    <Content Include="Images\Quizplay_graphics\intro_pic.jpg" />
+    <Content Include="Images\Quizplay_graphics\khelun.png" />
+    <Content Include="Images\Quizplay_graphics\mega_prize.jpg" />
+    <Content Include="Images\Quizplay_graphics\mob.png" />
+    <Content Include="Images\Quizplay_graphics\mobile.jpeg" />
+    <Content Include="Images\Quizplay_graphics\monthly.png" />
+    <Content Include="Images\Quizplay_graphics\mp.png" />
+    <Content Include="Images\Quizplay_graphics\New folder\protidin_puroshkar.png" />
+    <Content Include="Images\Quizplay_graphics\nonauto.png" />
+    <Content Include="Images\Quizplay_graphics\podium.png" />
+    <Content Include="Images\Quizplay_graphics\prize_button.png" />
+    <Content Include="Images\Quizplay_graphics\protidin_puroshkar.png" />
+    <Content Include="Images\Quizplay_graphics\q.png" />
+    <Content Include="Images\Quizplay_graphics\qbar.png" />
+    <Content Include="Images\Quizplay_graphics\qmark.png" />
+    <Content Include="Images\Quizplay_graphics\qplay_facebook.jpg" />
+    <Content Include="Images\Quizplay_graphics\Resize\Exit.png" />
+    <Content Include="Images\Quizplay_graphics\Resize\Home.png" />
+    <Content Include="Images\Quizplay_graphics\Resize\protidin_puroshkar.png" />
+    <Content Include="Images\Quizplay_graphics\Resize\start_button.png" />
+    <Content Include="Images\Quizplay_graphics\score_button.png" />
+    <Content Include="Images\Quizplay_graphics\shutter.png" />
+    <Content Include="Images\Quizplay_graphics\start_button.png" />
+    <Content Include="Images\Quizplay_graphics\t&amp;c.png" />
+    <Content Include="Images\Quizplay_graphics\threetimes.jpg" />
+    <Content Include="Images\Quizplay_graphics\threetimestext.png" />
+    <Content Include="Images\Quizplay_graphics\tt.gif" />
+    <Content Include="Images\Quizplay_graphics\UI_header.jpg" />
+    <Content Include="Images\Quizplay_graphics\Untitled-1.png" />
+    <Content Include="Images\Quizplay_graphics\weekly.png" />
+    <Content Include="Images\Quizplay_graphics\wp.png" />
+    <Content Include="Images\QuizPlay_Header.jpg" />
+    <Content Include="Quizplay.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Quizplay.Context.cs</LastGenOutput>
+      <DependentUpon>Quizplay.edmx</DependentUpon>
+    </Content>
+    <Content Include="Quizplay.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Quizplay.edmx</DependentUpon>
+      <LastGenOutput>Quizplay.cs</LastGenOutput>
+    </Content>
+    <Content Include="RobiSdp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RobiSdp.edmx</DependentUpon>
+      <LastGenOutput>RobiSdp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RobiSdp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RobiSdp.edmx</DependentUpon>
+      <LastGenOutput>RobiSdp.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Quizplay.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Quizplay.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Quizplay.edmx.diagram">
+      <DependentUpon>Quizplay.edmx</DependentUpon>
+    </Content>
+    <Content Include="fonts\omnes-webfont.ttf" />
+    <Content Include="bin\QuizPlayNew.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <EntityDeploy Include="RobiSdp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RobiSdp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="RobiSdp.edmx.diagram">
+      <DependentUpon>RobiSdp.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Blink.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Blink.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Blink.edmx.diagram">
+      <DependentUpon>Blink.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Default.js" />
+    <Content Include="Scripts\Download.js" />
+    <Content Include="Scripts\Feedback.js" />
+    <Content Include="Scripts\Finished.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\Master.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\More.js" />
+    <Content Include="Scripts\MyAccount.js" />
+    <Content Include="Scripts\Prizes.js" />
+    <Content Include="Scripts\QuizPlay.js" />
+    <Content Include="Scripts\QuizPlayBonusHour.js" />
+    <Content Include="Scripts\RobiAirtelFaq.js" />
+    <Content Include="Scripts\ScoreCardView.js" />
+    <Content Include="Scripts\ScoreView.js" />
+    <Content Include="Scripts\ScoreViewBonus.js" />
+    <Content Include="Scripts\TermsCondtion.js" />
+    <Content Include="Scripts\ThemeToday.js" />
+    <Content Include="Web References\HSP\Profiling.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\HSP\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\HSP\service.disco" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Home\QuizPlay.cshtml" />
+    <Content Include="Views\Shared\Master.cshtml" />
+    <Content Include="Views\Home\ScoreView.cshtml" />
+    <Content Include="Views\Home\ScoreCardView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Blink.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blink.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blink.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blink.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blink.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blink.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\api\MasterController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\BLSDPServiceUrl.cs" />
+    <Compile Include="Data\ClsUAProfile.cs" />
+    <Compile Include="Data\RobiDoubleConfirm.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FirebaseNotificationSend.cs" />
+    <Compile Include="Models\HitFirebase.cs" />
+    <Compile Include="Models\HSResult.cs" />
+    <Compile Include="Models\LiveResult.cs" />
+    <Compile Include="Models\Master.cs" />
+    <Compile Include="Models\Notify.cs" />
+    <Compile Include="Models\Questions.cs" />
+    <Compile Include="Models\Feedbackp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Qp_Firebase_ClickLog_Tables.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Qp_Firebase_SendLog_Tables.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Quizplay.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quizplay.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Quizplay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Quizplay.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quizplay.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RobiSdp.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RobiSdp.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RobiSdp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RobiSdp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RobiSdp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RobiSdp.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="spGetQuizPlayMyAccount_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetTodayHomeThemeMessageAndImage_new_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetTodayResultByMSISDN_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetUserResultDailyWeekly_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spQuizPlayGetTodayQuestionByMSISDNBonusHour_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spQuizPlayGetTodayQuestion_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spQuizPlayGetTodayScoreCardNew_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spQuizPlayIsBonusHour_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spQuizPlayMonthlyWinnersNew_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spQuizPlayWeeklyWinnersNew_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spScoreBonus_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spScore_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_fullvideoCatagory_cznew_test_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetLiveQuestions_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetLiveUserList1_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetTotalLiveRightAnswer_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetUserLiveResult_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetVideoUrl_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_MoreContent_Playnwin_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_LiveChallenge_Log.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_LiveQuestionAnswer.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QPFbInfo.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QpIsLive.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QpTokenLog.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayDateThemeRelation.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayFixRandomTheme.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayQuestions.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayResult.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayResultBonusHour.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayTheme.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayUserAnswer.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlayUserAnswerBonusHour.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_Access_Log.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_BonusHour_Played.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_Live_MagicHour.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_MyAccount.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_Played_Theme.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_Played_Theme_Session.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_PlayHit_Log.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_QuizPlay_ThemeSet_Today.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Subscriber_QuizPlay.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Unsubscription.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\HSP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ThemeToday.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\RobiAirtelFaq.cshtml" />
+    <Content Include="Views\Home\Faq.cshtml" />
+    <Content Include="Views\Home\TermsCondition.cshtml" />
+    <Content Include="Views\Home\MyAccount.cshtml" />
+    <Content Include="Views\Home\Feedback.cshtml" />
+    <Content Include="Views\Home\Default.cshtml" />
+    <Content Include="Views\Home\Download.cshtml" />
+    <Content Include="Views\Home\More.cshtml" />
+    <Content Include="Views\Home\Prizes.cshtml" />
+    <Content Include="Views\Home\Finished.cshtml" />
+    <Content Include="Views\Home\QuizPlayBonusHour.cshtml" />
+    <Content Include="Views\Home\ScoreViewBonus.cshtml" />
+    <Content Include="Views\Home\RobiUnsubscriptionSuccessfull.cshtml" />
+    <Content Include="Views\Home\UnsubscriptionSuccessfull.cshtml" />
+    <None Include="Web References\HSP\service.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.10.121/HSProfiling_WS/service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\HSP\</RelPath>
+      <UpdateFromURL>http://192.168.10.121/HSProfiling_WS/service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>QuizPlayNew_HSP_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3470</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3470/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
