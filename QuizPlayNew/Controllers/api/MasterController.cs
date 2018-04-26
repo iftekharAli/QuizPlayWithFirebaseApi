@@ -896,7 +896,7 @@ namespace QuizPlayNew.Controllers.api
                 context.SaveChanges();
 
             }
-           
+
             return Ok(new
             {
 
@@ -946,9 +946,9 @@ namespace QuizPlayNew.Controllers.api
         }
 
         [HttpGet]
-        public IHttpActionResult GetOnlineUsersCount([FromUri] GetLiveList getLiveList) 
+        public IHttpActionResult GetOnlineUsersCount([FromUri] GetLiveList getLiveList)
         {
-            
+
             var onlineuserListCount = context.tbl_QpIsLive.Count(x => x.IsActive == 1 && x.FbId != getLiveList.FbId);
 
             //var liveUserInfoList = context.tbl_QpIsLive.Where(x => x.IsActive == 1)
@@ -990,7 +990,7 @@ namespace QuizPlayNew.Controllers.api
                     Total = onlineuserListCount,
                     FbInfo = new
                     {
-                        liveUserInfoList=ss
+                        liveUserInfoList = ss
 
                     }
                 }
@@ -1135,8 +1135,7 @@ namespace QuizPlayNew.Controllers.api
             liveChallangeLog.IsAccepted = 0;
             liveChallangeLog.TimeStamp = DateTime.Now;
             var ifExists = context.tbl_LiveChallenge_Log.Any(x =>
-                x.FbIdSender == liveChallangeLog.FbIdSender && x.FbIdReceiver == liveChallangeLog.FbIdReceiver &&
-                x.IsActive == 1);
+            x.FbIdSender == liveChallangeLog.FbIdSender && x.FbIdReceiver == liveChallangeLog.FbIdReceiver && x.IsActive == 1);
             if (!ifExists)
             {
                 context.tbl_LiveChallenge_Log.Add(liveChallangeLog);
@@ -1149,7 +1148,7 @@ namespace QuizPlayNew.Controllers.api
                     to = liveChallangeLog.Receiver,
                     data = new LiveData()
                     {
-                        RoomId = liveChallangeLog.FbIdSender.ToString() + liveChallangeLog.FbIdReceiver.ToString(),
+                        RoomId = liveChallangeLog.FbIdSender.ToString() + "_" + liveChallangeLog.FbIdReceiver.ToString(),
                         Type = "ChallangeSent",
                         Message = senderName.FbName + " request you for a challange"
 
@@ -1161,7 +1160,7 @@ namespace QuizPlayNew.Controllers.api
 
             return Ok(new
             {
-                result = !ifExists ? "Success":"Already Sent"
+                result = !ifExists ? "Success" : "Already Sent"
             });
         }
 
@@ -1170,18 +1169,18 @@ namespace QuizPlayNew.Controllers.api
         {
             //liveChallangeLog.IsActive = 0;
             //liveChallangeLog.IsAccepted = 1;
-            var userToUpdate = context.tbl_LiveChallenge_Log.OrderByDescending(x=>x.Id).First(x => x.Receiver == liveChallangeLog.Receiver && x.FbIdReceiver == liveChallangeLog.FbIdReceiver);
+            var userToUpdate = context.tbl_LiveChallenge_Log.OrderByDescending(x => x.Id).First(x => x.Receiver == liveChallangeLog.Receiver && x.FbIdReceiver == liveChallangeLog.FbIdReceiver);
             userToUpdate.IsActive = 0;
             userToUpdate.IsAccepted = liveChallangeLog.IsAccepted;
             userToUpdate.AcceptedTime = DateTime.Now;
             context.SaveChanges();
-            var senderName = context.tbl_QPFbInfo.First(x => x.FbId == liveChallangeLog.FbIdReceiver);
+            var senderName = context.tbl_QPFbInfo.OrderByDescending(x => x.TimeStamp).First(x => x.FbId == liveChallangeLog.FbIdReceiver);
             var liveRequestAccept = new LiveChallange()
             {
-                to = liveChallangeLog.Receiver,
+                to = userToUpdate.Sender,
                 data = new LiveData()
                 {
-                    RoomId = liveChallangeLog.Sender.ToString() + liveChallangeLog.Receiver.ToString(),
+                    RoomId = userToUpdate.Sender.ToString() + "_" + liveChallangeLog.Receiver.ToString(),
                     Type = liveChallangeLog.IsAccepted == 1 ? "ChallangeAccepted" : "ChallangeRejected",
                     Message = senderName.FbName + (liveChallangeLog.IsAccepted == 1 ? " accepted your challange" : " rejected your challange")
 
