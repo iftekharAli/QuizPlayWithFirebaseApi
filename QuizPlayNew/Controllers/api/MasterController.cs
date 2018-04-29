@@ -1180,7 +1180,7 @@ namespace QuizPlayNew.Controllers.api
                 to = userToUpdate.Sender,
                 data = new LiveData()
                 {
-                    RoomId = userToUpdate.Sender.ToString() + "_" + liveChallangeLog.Receiver.ToString(),
+                    RoomId = userToUpdate.FbIdSender.ToString() + "_" + liveChallangeLog.FbIdReceiver.ToString(),
                     Type = liveChallangeLog.IsAccepted == 1 ? "ChallangeAccepted" : "ChallangeRejected",
                     Message = senderName.FbName + (liveChallangeLog.IsAccepted == 1 ? " accepted your challange" : " rejected your challange")
 
@@ -1190,6 +1190,7 @@ namespace QuizPlayNew.Controllers.api
             var response = HitFirebase.SendPushNotification("", liveRequestAccept);
             return Ok(new { result = "Success" });
         }
+        
 
     }
 }

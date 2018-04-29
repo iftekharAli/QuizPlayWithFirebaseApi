@@ -181,3 +181,4 @@ C:\Users\iftekhar\source\repos\QuizPlayWithFirebaseApi\QuizPlayNew\obj\Debug\Qui
 C:\Users\iftekhar\source\repos\QuizPlayWithFirebaseApi\QuizPlayNew\obj\Debug\QuizPlayNew.csproj.CoreCompileInputs.cache
 C:\Users\iftekhar\source\repos\QuizPlayWithFirebaseApi\QuizPlayNew\obj\Debug\QuizPlayNew.dll
 C:\Users\iftekhar\source\repos\QuizPlayWithFirebaseApi\QuizPlayNew\obj\Debug\QuizPlayNew.pdb
+C:\Users\iftekhar\Source\Repos\QuizPlayWithFirebaseApi\QuizPlayNew\obj\Debug\QuizPlayNew.csproj.CopyComplete

@@ -14,4 +14,5 @@ namespace QuizPlayNew.Models
     {
         public string FbId { get; set; }
     }
+
 }
