@@ -32,6 +32,8 @@
     <Property Name="IsAccepted" Type="int" />
     <Property Name="TimeStamp" Type="datetime" />
     <Property Name="AcceptedTime" Type="datetime" />
+    <Property Name="QuestionTypeId" Type="int" />
+    <Property Name="QuestionTypeName" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="tbl_LiveQuestionAnswer">
     <Key>
@@ -43,6 +45,9 @@
     <Property Name="Answer" Type="nvarchar(max)" />
     <Property Name="TimeTaken" Type="int" />
     <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="RoomId" Type="nvarchar(max)" />
+    <Property Name="SessionNumber" Type="int" />
   </EntityType>
   <EntityType Name="tbl_QPFbInfo">
     <Key>
@@ -359,8 +364,16 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
     <Parameter Name="total" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_GetLiveQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetLiveQuestions_Challange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="qtypeid" Type="int" Mode="In" />
+  </Function>
   <Function Name="sp_GetLiveUserList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="fbid" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_GetTotalChallangeRightAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roomid" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="type" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="sessionNumber" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_GetTotalLiveRightAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Qid" Type="int" Mode="In" />

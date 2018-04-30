@@ -869,6 +869,8 @@ namespace QuizPlayNew.Controllers.api
         public IHttpActionResult InsertLiveAnswer(tbl_LiveQuestionAnswer a)
         {
             a.TimeStamp = DateTime.Now;
+            a.Type = "Live";
+            a.RoomId = "";
             context.tbl_LiveQuestionAnswer.Add(a);
             context.SaveChanges();
             return Ok(new
@@ -1190,7 +1192,77 @@ namespace QuizPlayNew.Controllers.api
             var response = HitFirebase.SendPushNotification("", liveRequestAccept);
             return Ok(new { result = "Success" });
         }
-        
+
+
+        [HttpPost]
+        public IHttpActionResult LiveQuestionSet(LiveQuestions liveChallangeLog)
+        {
+            //liveChallangeLog.IsActive = 0;
+            //liveChallangeLog.IsAccepted = 1;
+            DateTime date = Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy/MM/dd"));
+            var maxCount = 
+                context.tbl_LiveChallenge_Log.OrderByDescending(x =>
+                x.Id).Count(x => x.FbIdSender + "_" + x.FbIdReceiver == liveChallangeLog.RoomId && DbFunctions.TruncateTime(x.TimeStamp) == date.Date);
+
+            var RoomQid = context.tbl_LiveChallenge_Log.OrderByDescending(x=>x.Id).FirstOrDefault(x =>
+                x.FbIdSender + "_" + x.FbIdReceiver == liveChallangeLog.RoomId && x.IsActive==0 && x.IsAccepted==1);
+
+            var ss = context.Database.SqlQuery<sp_GetLiveQuestions_Challange_Result>("sp_GetLiveQuestions_Challange @qtypeid",
+                new SqlParameter("@qtypeid", RoomQid.QuestionTypeId));
+
+            return Ok(new
+            {
+                QuestionsResult = ss,
+                SessionNumber = maxCount+1
+            });
+        }
+
+
+        [HttpGet]
+        public IHttpActionResult GetChallangeTheme()
+        {
+            //liveChallangeLog.IsActive = 0;
+            //liveChallangeLog.IsAccepted = 1;
+            var liveTheme = (context.tbl_QuizPlayTheme.Where(x => x.HomeTheme.Contains("লাইভ")).ToList()).Select(x=>new
+            {
+                x.ID,
+                ThemeName= x.HomeTheme,
+                Image = "http://wap.shabox.mobi/cms/content/QuizPlay/Theme/"+x.HomeThemeImage
+            });
+          
+            return Ok(new
+            {
+                result = liveTheme
+            });
+        }
+
+        [HttpPost]
+        public IHttpActionResult InsertChallangeAnswer(tbl_LiveQuestionAnswer a)
+        {
+            a.TimeStamp = DateTime.Now;
+            a.Type = "Challange";
+            context.tbl_LiveQuestionAnswer.Add(a);
+            context.SaveChanges();
+            return Ok(new
+            {
+                result = "Success"
+            });
+        }
+
+        [HttpPost]
+        public IHttpActionResult GetChallangeResult(ChallangeResult a)
+        {
+            //sp_GetTotalChallangeRightAnswer
+            var ScoreChallange = context.Database.SqlQuery<sp_GetTotalChallangeRightAnswer_Result>("sp_GetTotalChallangeRightAnswer @roomid,@type,@sessionNumber",
+                new SqlParameter("@roomid", a.RoomId),
+                new SqlParameter("@type", a.Type),
+                new SqlParameter("@sessionNumber",a.SessionNumber)
+                );
+            return Ok(new
+            {
+                result= ScoreChallange
+            });
+        }
 
     }
 }

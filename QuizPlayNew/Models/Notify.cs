@@ -15,4 +15,15 @@ namespace QuizPlayNew.Models
         public string FbId { get; set; }
     }
 
+    public class LiveQuestions
+    {
+        public string RoomId { get; set; }
+    }
+
+    public class ChallangeResult
+    {
+        public string RoomId { get; set; }
+        public string Type { get; set; }
+        public int SessionNumber { get; set; }
+    }
 }

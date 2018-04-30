@@ -10,18 +10,11 @@
 namespace QuizPlayNew
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tbl_LiveQuestionAnswer
+    public partial class sp_GetTotalChallangeRightAnswer_Result
     {
-        public long Id { get; set; }
+        public Nullable<int> RightAnswer { get; set; }
+        public Nullable<int> WrongAnswer { get; set; }
         public string MSISDN { get; set; }
-        public string QuestionId { get; set; }
-        public string Answer { get; set; }
-        public Nullable<System.DateTime> TimeStamp { get; set; }
-        public Nullable<int> TimeTaken { get; set; }
-        public string Type { get; set; }
-        public string RoomId { get; set; }
-        public Nullable<int> SessionNumber { get; set; }
     }
 }

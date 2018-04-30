@@ -23,5 +23,7 @@ namespace QuizPlayNew
         public Nullable<int> IsAccepted { get; set; }
         public Nullable<System.DateTime> TimeStamp { get; set; }
         public Nullable<System.DateTime> AcceptedTime { get; set; }
+        public Nullable<int> QuestionTypeId { get; set; }
+        public string QuestionTypeName { get; set; }
     }
 }

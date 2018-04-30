@@ -37,6 +37,8 @@
           <Property Name="IsAccepted" Type="int" />
           <Property Name="TimeStamp" Type="datetime" />
           <Property Name="AcceptedTime" Type="datetime" />
+          <Property Name="QuestionTypeId" Type="int" />
+          <Property Name="QuestionTypeName" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tbl_LiveQuestionAnswer">
           <Key>
@@ -48,6 +50,9 @@
           <Property Name="Answer" Type="nvarchar(max)" />
           <Property Name="TimeTaken" Type="int" />
           <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="RoomId" Type="nvarchar(max)" />
+          <Property Name="SessionNumber" Type="int" />
         </EntityType>
         <EntityType Name="tbl_QPFbInfo">
           <Key>
@@ -364,8 +369,16 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <Parameter Name="total" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_GetLiveQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetLiveQuestions_Challange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="qtypeid" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_GetLiveUserList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="fbid" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_GetTotalChallangeRightAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="roomid" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="type" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="sessionNumber" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_GetTotalLiveRightAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Qid" Type="int" Mode="In" />
@@ -942,7 +955,15 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <Parameter Name="fbid" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_GetLiveUserList1" ReturnType="Collection(QpDbContext.sp_GetLiveUserList1_Result)">
-            <Parameter Name="fbid" Mode="In" Type="String" />
+          <Parameter Name="fbid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetLiveQuestions_Challange" ReturnType="Collection(QpDbContext.sp_GetLiveQuestions_Challange_Result)">
+          <Parameter Name="qtypeid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetTotalChallangeRightAnswer" ReturnType="Collection(QpDbContext.sp_GetTotalChallangeRightAnswer_Result)">
+            <Parameter Name="roomid" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="sessionNumber" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spQuizPlayGetTodayQuestion_Result">
@@ -1127,6 +1148,9 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TimeStamp" Type="DateTime" Precision="3" />
           <Property Name="TimeTaken" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoomId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SessionNumber" Type="Int32" />
         </EntityType>
         <ComplexType Name="sp_GetLiveQuestions_Result">
           <Property Type="Int64" Name="ID" Nullable="false" />
@@ -1230,6 +1254,8 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <Property Name="IsAccepted" Type="Int32" />
           <Property Name="TimeStamp" Type="DateTime" Precision="3" />
           <Property Name="AcceptedTime" Type="DateTime" Precision="3" />
+          <Property Name="QuestionTypeId" Type="Int32" />
+          <Property Name="QuestionTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <ComplexType Name="sp_GetLiveUserList1_Result">
           <Property Type="String" Name="FbId" Nullable="true" />
@@ -1237,6 +1263,21 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <Property Type="String" Name="FbImageUrl" Nullable="true" />
           <Property Type="String" Name="Token" Nullable="true" />
           <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <ComplexType Name="sp_GetLiveQuestions_Challange_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int64" Name="QuestionThemeID" Nullable="false" />
+          <Property Type="String" Name="QuestionImage" Nullable="true" MaxLength="553" />
+          <Property Type="String" Name="Question" Nullable="false" />
+          <Property Type="String" Name="Option1" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="Option2" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="Option3" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="Answer" Nullable="false" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="sp_GetTotalChallangeRightAnswer_Result">
+          <Property Type="Int32" Name="RightAnswer" Nullable="true" />
+          <Property Type="Int32" Name="WrongAnswer" Nullable="true" />
+          <Property Type="String" Name="MSISDN" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1689,6 +1730,9 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <EntitySetMapping Name="tbl_LiveQuestionAnswer">
             <EntityTypeMapping TypeName="QpDbContext.tbl_LiveQuestionAnswer">
               <MappingFragment StoreEntitySet="tbl_LiveQuestionAnswer">
+                <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
                 <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
                 <ScalarProperty Name="Answer" ColumnName="Answer" />
@@ -1808,6 +1852,8 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <EntitySetMapping Name="tbl_LiveChallenge_Log">
             <EntityTypeMapping TypeName="QpDbContext.tbl_LiveChallenge_Log">
               <MappingFragment StoreEntitySet="tbl_LiveChallenge_Log">
+                <ScalarProperty Name="QuestionTypeName" ColumnName="QuestionTypeName" />
+                <ScalarProperty Name="QuestionTypeId" ColumnName="QuestionTypeId" />
                 <ScalarProperty Name="AcceptedTime" ColumnName="AcceptedTime" />
                 <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
                 <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
@@ -1828,6 +1874,29 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
                 <ScalarProperty Name="FbImageUrl" ColumnName="FbImageUrl" />
                 <ScalarProperty Name="Token" ColumnName="Token" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetLiveQuestions_Challange" FunctionName="QpDbContext.Store.sp_GetLiveQuestions_Challange">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QpDbContext.sp_GetLiveQuestions_Challange_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="QuestionThemeID" ColumnName="QuestionThemeID" />
+                <ScalarProperty Name="QuestionImage" ColumnName="QuestionImage" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Option1" ColumnName="Option1" />
+                <ScalarProperty Name="Option2" ColumnName="Option2" />
+                <ScalarProperty Name="Option3" ColumnName="Option3" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetTotalChallangeRightAnswer" FunctionName="QpDbContext.Store.sp_GetTotalChallangeRightAnswer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QpDbContext.sp_GetTotalChallangeRightAnswer_Result">
+                <ScalarProperty Name="RightAnswer" ColumnName="RightAnswer" />
+                <ScalarProperty Name="WrongAnswer" ColumnName="WrongAnswer" />
+                <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
