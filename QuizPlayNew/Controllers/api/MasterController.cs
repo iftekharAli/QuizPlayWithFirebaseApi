@@ -1200,12 +1200,12 @@ namespace QuizPlayNew.Controllers.api
             //liveChallangeLog.IsActive = 0;
             //liveChallangeLog.IsAccepted = 1;
             DateTime date = Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy/MM/dd"));
-            var maxCount = 
+            var maxCount =
                 context.tbl_LiveChallenge_Log.OrderByDescending(x =>
                 x.Id).Count(x => x.FbIdSender + "_" + x.FbIdReceiver == liveChallangeLog.RoomId && DbFunctions.TruncateTime(x.TimeStamp) == date.Date);
 
-            var RoomQid = context.tbl_LiveChallenge_Log.OrderByDescending(x=>x.Id).FirstOrDefault(x =>
-                x.FbIdSender + "_" + x.FbIdReceiver == liveChallangeLog.RoomId && x.IsActive==0 && x.IsAccepted==1);
+            var RoomQid = context.tbl_LiveChallenge_Log.OrderByDescending(x => x.Id).FirstOrDefault(x =>
+                  x.FbIdSender + "_" + x.FbIdReceiver == liveChallangeLog.RoomId && x.IsActive == 0 && x.IsAccepted == 1);
 
             var ss = context.Database.SqlQuery<sp_GetLiveQuestions_Challange_Result>("sp_GetLiveQuestions_Challange @qtypeid",
                 new SqlParameter("@qtypeid", RoomQid.QuestionTypeId));
@@ -1213,7 +1213,7 @@ namespace QuizPlayNew.Controllers.api
             return Ok(new
             {
                 QuestionsResult = ss,
-                SessionNumber = maxCount+1
+                SessionNumber = maxCount + 1
             });
         }
 
@@ -1223,13 +1223,13 @@ namespace QuizPlayNew.Controllers.api
         {
             //liveChallangeLog.IsActive = 0;
             //liveChallangeLog.IsAccepted = 1;
-            var liveTheme = (context.tbl_QuizPlayTheme.Where(x => x.HomeTheme.Contains("লাইভ")).ToList()).Select(x=>new
+            var liveTheme = (context.tbl_QuizPlayTheme.Where(x => x.HomeTheme.Contains("লাইভ")).ToList()).Select(x => new
             {
                 x.ID,
-                ThemeName= x.HomeTheme,
-                Image = "http://wap.shabox.mobi/cms/content/QuizPlay/Theme/"+x.HomeThemeImage
+                ThemeName = x.HomeTheme,
+                Image = "http://wap.shabox.mobi/cms/content/QuizPlay/Theme/" + x.HomeThemeImage
             });
-          
+
             return Ok(new
             {
                 result = liveTheme
@@ -1256,11 +1256,11 @@ namespace QuizPlayNew.Controllers.api
             var ScoreChallange = context.Database.SqlQuery<sp_GetTotalChallangeRightAnswer1_Result>("sp_GetTotalChallangeRightAnswer @roomid,@type,@sessionNumber",
                 new SqlParameter("@roomid", a.RoomId),
                 new SqlParameter("@type", a.Type),
-                new SqlParameter("@sessionNumber",a.SessionNumber)
+                new SqlParameter("@sessionNumber", a.SessionNumber)
                 );
             return Ok(new
             {
-                result= ScoreChallange
+                ChallangeResult = ScoreChallange
             });
         }
 
