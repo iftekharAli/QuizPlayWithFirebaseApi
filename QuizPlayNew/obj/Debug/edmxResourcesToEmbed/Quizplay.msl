@@ -624,5 +624,16 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetLiveUserList_All" FunctionName="QpDbContext.Store.sp_GetLiveUserList_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QpDbContext.sp_GetLiveUserList_All_Result">
+          <ScalarProperty Name="FbId" ColumnName="FbId" />
+          <ScalarProperty Name="FbName" ColumnName="FbName" />
+          <ScalarProperty Name="FbImageUrl" ColumnName="FbImageUrl" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -400,6 +400,9 @@
       <Parameter Name="type" Mode="In" Type="String" />
       <Parameter Name="sessionNumber" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="sp_GetLiveUserList_All" ReturnType="Collection(QpDbContext.sp_GetLiveUserList_All_Result)">
+      <Parameter Name="fbid" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="spQuizPlayGetTodayQuestion_Result">
     <Property Type="Int64" Name="ID" Nullable="false" />
@@ -721,5 +724,12 @@
     <Property Type="String" Name="Email" Nullable="true" />
     <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
     <Property Type="DateTime" Name="TimeStamp" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetLiveUserList_All_Result">
+    <Property Type="String" Name="FbId" Nullable="true" />
+    <Property Type="String" Name="FbName" Nullable="true" />
+    <Property Type="String" Name="FbImageUrl" Nullable="true" />
+    <Property Type="String" Name="Token" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
   </ComplexType>
 </Schema>

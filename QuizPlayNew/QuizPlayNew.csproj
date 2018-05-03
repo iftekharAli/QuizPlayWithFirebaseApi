@@ -532,6 +532,9 @@
     <Compile Include="sp_GetLiveUserList1_Result.cs">
       <DependentUpon>Quizplay.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_GetLiveUserList_All_Result.cs">
+      <DependentUpon>Quizplay.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_GetTotalChallangeRightAnswer1_Result.cs">
       <DependentUpon>Quizplay.tt</DependentUpon>
     </Compile>

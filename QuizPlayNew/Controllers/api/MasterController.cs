@@ -923,11 +923,15 @@ namespace QuizPlayNew.Controllers.api
                 var userToUpdate = context.tbl_QpIsLive.First(x => x.FbId == isLive.FbId);
                 userToUpdate.IsActive = isLive.IsActive;
                 userToUpdate.TimeStamp = DateTime.Now;
-                var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
-                if (resultOfMsisdn)
+                if (!string.IsNullOrEmpty(isLive.MSISDN))
                 {
-                    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(isLive.MSISDN) ? "" : isLive.MSISDN;
+                    userToUpdate.MSISDN = isLive.MSISDN;
                 }
+                //var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
+                //if (resultOfMsisdn)
+                //{
+                //    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(isLive.MSISDN) ? "" : isLive.MSISDN;
+                //}
             }
             else
             {
@@ -1015,11 +1019,16 @@ namespace QuizPlayNew.Controllers.api
                 userToUpdate.IsActive = token.IsActive;
                 userToUpdate.TimeStamp = DateTime.Now;
                 userToUpdate.Token = token.Token;
-                var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
-                if (resultOfMsisdn)
+                if (!string.IsNullOrEmpty(token.MSISDN))
                 {
-                    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
+                    userToUpdate.MSISDN = token.MSISDN;
                 }
+               
+                //var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
+                //if (resultOfMsisdn)
+                //{
+                //    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
+                //}
 
 
             }
@@ -1264,5 +1273,22 @@ namespace QuizPlayNew.Controllers.api
             });
         }
 
+        [HttpGet]
+        public IHttpActionResult GetOnlineUsersCountAll([FromUri] GetLiveList getLiveList)
+        {
+            var ss = context.Database.SqlQuery<sp_GetLiveUserList_All_Result>("sp_GetLiveUserList_All @fbid",
+                new SqlParameter("@fbid", getLiveList.FbId));
+            return Ok(new
+            {
+                result = new
+                {
+                    FbInfo = new
+                    {
+                        liveUserInfoList = ss
+
+                    }
+                }
+            });
+        }
     }
 }

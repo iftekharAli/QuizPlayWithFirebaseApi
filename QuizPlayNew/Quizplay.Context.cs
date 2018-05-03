@@ -570,5 +570,14 @@ namespace QuizPlayNew
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetTotalChallangeRightAnswer1_Result>("sp_GetTotalChallangeRightAnswer1", roomidParameter, typeParameter, sessionNumberParameter);
         }
+    
+        public virtual ObjectResult<sp_GetLiveUserList_All_Result> sp_GetLiveUserList_All(string fbid)
+        {
+            var fbidParameter = fbid != null ?
+                new ObjectParameter("fbid", fbid) :
+                new ObjectParameter("fbid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetLiveUserList_All_Result>("sp_GetLiveUserList_All", fbidParameter);
+        }
     }
 }

@@ -370,6 +370,9 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
   <Function Name="sp_GetLiveUserList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="fbid" Type="nvarchar(max)" Mode="In" />
   </Function>
+  <Function Name="sp_GetLiveUserList_All" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fbid" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="sp_GetTotalChallangeRightAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="roomid" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="type" Type="nvarchar(max)" Mode="In" />
