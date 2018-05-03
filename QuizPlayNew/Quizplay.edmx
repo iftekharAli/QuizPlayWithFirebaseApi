@@ -960,7 +960,12 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <FunctionImport Name="sp_GetLiveQuestions_Challange" ReturnType="Collection(QpDbContext.sp_GetLiveQuestions_Challange_Result)">
           <Parameter Name="qtypeid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_GetTotalChallangeRightAnswer" ReturnType="Collection(QpDbContext.sp_GetTotalChallangeRightAnswer_Result)">
+          <FunctionImport Name="sp_GetTotalChallangeRightAnswer">
+            <Parameter Name="roomid" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="sessionNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetTotalChallangeRightAnswer1" ReturnType="Collection(QpDbContext.sp_GetTotalChallangeRightAnswer1_Result)">
             <Parameter Name="roomid" Mode="In" Type="String" />
             <Parameter Name="type" Mode="In" Type="String" />
             <Parameter Name="sessionNumber" Mode="In" Type="Int32" />
@@ -1274,10 +1279,18 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
           <Property Type="String" Name="Option3" Nullable="false" MaxLength="1000" />
           <Property Type="String" Name="Answer" Nullable="false" MaxLength="1000" />
         </ComplexType>
-        <ComplexType Name="sp_GetTotalChallangeRightAnswer_Result">
+        <ComplexType Name="sp_GetTotalChallangeRightAnswer1_Result">
           <Property Type="Int32" Name="RightAnswer" Nullable="true" />
           <Property Type="Int32" Name="WrongAnswer" Nullable="true" />
           <Property Type="String" Name="MSISDN" Nullable="true" />
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="MSISDN1" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="FbId" Nullable="true" />
+          <Property Type="String" Name="FbName" Nullable="true" />
+          <Property Type="String" Name="FbImageUrl" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="true" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1891,12 +1904,20 @@ warning 6002: The table/view 'Partner_Basket.dbo.tbl_QuizPlay_ThemeSet_Today' do
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_GetTotalChallangeRightAnswer" FunctionName="QpDbContext.Store.sp_GetTotalChallangeRightAnswer">
+          <FunctionImportMapping FunctionImportName="sp_GetTotalChallangeRightAnswer1" FunctionName="QpDbContext.Store.sp_GetTotalChallangeRightAnswer">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="QpDbContext.sp_GetTotalChallangeRightAnswer_Result">
+              <ComplexTypeMapping TypeName="QpDbContext.sp_GetTotalChallangeRightAnswer1_Result">
                 <ScalarProperty Name="RightAnswer" ColumnName="RightAnswer" />
                 <ScalarProperty Name="WrongAnswer" ColumnName="WrongAnswer" />
                 <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MSISDN1" ColumnName="MSISDN1" />
+                <ScalarProperty Name="FbId" ColumnName="FbId" />
+                <ScalarProperty Name="FbName" ColumnName="FbName" />
+                <ScalarProperty Name="FbImageUrl" ColumnName="FbImageUrl" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

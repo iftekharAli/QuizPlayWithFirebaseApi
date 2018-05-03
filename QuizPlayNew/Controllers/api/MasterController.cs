@@ -1253,7 +1253,7 @@ namespace QuizPlayNew.Controllers.api
         public IHttpActionResult GetChallangeResult(ChallangeResult a)
         {
             //sp_GetTotalChallangeRightAnswer
-            var ScoreChallange = context.Database.SqlQuery<sp_GetTotalChallangeRightAnswer_Result>("sp_GetTotalChallangeRightAnswer @roomid,@type,@sessionNumber",
+            var ScoreChallange = context.Database.SqlQuery<sp_GetTotalChallangeRightAnswer1_Result>("sp_GetTotalChallangeRightAnswer @roomid,@type,@sessionNumber",
                 new SqlParameter("@roomid", a.RoomId),
                 new SqlParameter("@type", a.Type),
                 new SqlParameter("@sessionNumber",a.SessionNumber)
