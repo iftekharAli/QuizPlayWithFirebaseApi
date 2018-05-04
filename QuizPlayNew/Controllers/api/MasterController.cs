@@ -869,6 +869,8 @@ namespace QuizPlayNew.Controllers.api
         public IHttpActionResult InsertLiveAnswer(tbl_LiveQuestionAnswer a)
         {
             a.TimeStamp = DateTime.Now;
+            a.Type = "Live";
+            a.RoomId = "";
             context.tbl_LiveQuestionAnswer.Add(a);
             context.SaveChanges();
             return Ok(new
@@ -921,11 +923,15 @@ namespace QuizPlayNew.Controllers.api
                 var userToUpdate = context.tbl_QpIsLive.First(x => x.FbId == isLive.FbId);
                 userToUpdate.IsActive = isLive.IsActive;
                 userToUpdate.TimeStamp = DateTime.Now;
-                var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
-                if (resultOfMsisdn)
+                if (!string.IsNullOrEmpty(isLive.MSISDN))
                 {
-                    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(isLive.MSISDN) ? "" : isLive.MSISDN;
+                    userToUpdate.MSISDN = isLive.MSISDN;
                 }
+                //var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
+                //if (resultOfMsisdn)
+                //{
+                //    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(isLive.MSISDN) ? "" : isLive.MSISDN;
+                //}
             }
             else
             {
@@ -1013,11 +1019,16 @@ namespace QuizPlayNew.Controllers.api
                 userToUpdate.IsActive = token.IsActive;
                 userToUpdate.TimeStamp = DateTime.Now;
                 userToUpdate.Token = token.Token;
-                var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
-                if (resultOfMsisdn)
+                if (!string.IsNullOrEmpty(token.MSISDN))
                 {
-                    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
+                    userToUpdate.MSISDN = token.MSISDN;
                 }
+               
+                //var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
+                //if (resultOfMsisdn)
+                //{
+                //    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
+                //}
 
 
             }
@@ -1190,7 +1201,94 @@ namespace QuizPlayNew.Controllers.api
             var response = HitFirebase.SendPushNotification("", liveRequestAccept);
             return Ok(new { result = "Success" });
         }
-        
 
+
+        [HttpPost]
+        public IHttpActionResult LiveQuestionSet(LiveQuestions liveChallangeLog)
+        {
+            //liveChallangeLog.IsActive = 0;
+            //liveChallangeLog.IsAccepted = 1;
+            DateTime date = Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy/MM/dd"));
+            var maxCount =
+                context.tbl_LiveChallenge_Log.OrderByDescending(x =>
+                x.Id).Count(x => x.FbIdSender + "_" + x.FbIdReceiver == liveChallangeLog.RoomId && DbFunctions.TruncateTime(x.TimeStamp) == date.Date);
+
+            var RoomQid = context.tbl_LiveChallenge_Log.OrderByDescending(x => x.Id).FirstOrDefault(x =>
+                  x.FbIdSender + "_" + x.FbIdReceiver == liveChallangeLog.RoomId && x.IsActive == 0 && x.IsAccepted == 1);
+
+            var ss = context.Database.SqlQuery<sp_GetLiveQuestions_Challange_Result>("sp_GetLiveQuestions_Challange @qtypeid",
+                new SqlParameter("@qtypeid", RoomQid.QuestionTypeId));
+
+            return Ok(new
+            {
+                QuestionsResult = ss,
+                SessionNumber = maxCount + 1
+            });
+        }
+
+
+        [HttpGet]
+        public IHttpActionResult GetChallangeTheme()
+        {
+            //liveChallangeLog.IsActive = 0;
+            //liveChallangeLog.IsAccepted = 1;
+            var liveTheme = (context.tbl_QuizPlayTheme.Where(x => x.HomeTheme.Contains("লাইভ")).ToList()).Select(x => new
+            {
+                x.ID,
+                ThemeName = x.HomeTheme,
+                Image = "http://wap.shabox.mobi/cms/content/QuizPlay/Theme/" + x.HomeThemeImage
+            });
+
+            return Ok(new
+            {
+                result = liveTheme
+            });
+        }
+
+        [HttpPost]
+        public IHttpActionResult InsertChallangeAnswer(tbl_LiveQuestionAnswer a)
+        {
+            a.TimeStamp = DateTime.Now;
+            a.Type = "Challange";
+            context.tbl_LiveQuestionAnswer.Add(a);
+            context.SaveChanges();
+            return Ok(new
+            {
+                result = "Success"
+            });
+        }
+
+        [HttpPost]
+        public IHttpActionResult GetChallangeResult(ChallangeResult a)
+        {
+            //sp_GetTotalChallangeRightAnswer
+            var ScoreChallange = context.Database.SqlQuery<sp_GetTotalChallangeRightAnswer1_Result>("sp_GetTotalChallangeRightAnswer @roomid,@type,@sessionNumber",
+                new SqlParameter("@roomid", a.RoomId),
+                new SqlParameter("@type", a.Type),
+                new SqlParameter("@sessionNumber", a.SessionNumber)
+                );
+            return Ok(new
+            {
+                ChallangeResult = ScoreChallange
+            });
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetOnlineUsersCountAll([FromUri] GetLiveList getLiveList)
+        {
+            var ss = context.Database.SqlQuery<sp_GetLiveUserList_All_Result>("sp_GetLiveUserList_All @fbid",
+                new SqlParameter("@fbid", getLiveList.FbId));
+            return Ok(new
+            {
+                result = new
+                {
+                    FbInfo = new
+                    {
+                        liveUserInfoList = ss
+
+                    }
+                }
+            });
+        }
     }
 }

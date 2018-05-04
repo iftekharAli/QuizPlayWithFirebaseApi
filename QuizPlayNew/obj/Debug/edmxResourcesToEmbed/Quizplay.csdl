@@ -387,6 +387,22 @@
     <FunctionImport Name="sp_GetLiveUserList1" ReturnType="Collection(QpDbContext.sp_GetLiveUserList1_Result)">
       <Parameter Name="fbid" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_GetLiveQuestions_Challange" ReturnType="Collection(QpDbContext.sp_GetLiveQuestions_Challange_Result)">
+      <Parameter Name="qtypeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetTotalChallangeRightAnswer">
+      <Parameter Name="roomid" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="sessionNumber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetTotalChallangeRightAnswer1" ReturnType="Collection(QpDbContext.sp_GetTotalChallangeRightAnswer1_Result)">
+      <Parameter Name="roomid" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="sessionNumber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetLiveUserList_All" ReturnType="Collection(QpDbContext.sp_GetLiveUserList_All_Result)">
+      <Parameter Name="fbid" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="spQuizPlayGetTodayQuestion_Result">
     <Property Type="Int64" Name="ID" Nullable="false" />
@@ -570,6 +586,9 @@
     <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="TimeStamp" Type="DateTime" Precision="3" />
     <Property Name="TimeTaken" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RoomId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SessionNumber" Type="Int32" />
   </EntityType>
   <ComplexType Name="sp_GetLiveQuestions_Result">
     <Property Type="Int64" Name="ID" Nullable="false" />
@@ -673,8 +692,40 @@
     <Property Name="IsAccepted" Type="Int32" />
     <Property Name="TimeStamp" Type="DateTime" Precision="3" />
     <Property Name="AcceptedTime" Type="DateTime" Precision="3" />
+    <Property Name="QuestionTypeId" Type="Int32" />
+    <Property Name="QuestionTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <ComplexType Name="sp_GetLiveUserList1_Result">
+    <Property Type="String" Name="FbId" Nullable="true" />
+    <Property Type="String" Name="FbName" Nullable="true" />
+    <Property Type="String" Name="FbImageUrl" Nullable="true" />
+    <Property Type="String" Name="Token" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="sp_GetLiveQuestions_Challange_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="Int64" Name="QuestionThemeID" Nullable="false" />
+    <Property Type="String" Name="QuestionImage" Nullable="true" MaxLength="553" />
+    <Property Type="String" Name="Question" Nullable="false" />
+    <Property Type="String" Name="Option1" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="Option2" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="Option3" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="Answer" Nullable="false" MaxLength="1000" />
+  </ComplexType>
+  <ComplexType Name="sp_GetTotalChallangeRightAnswer1_Result">
+    <Property Type="Int32" Name="RightAnswer" Nullable="true" />
+    <Property Type="Int32" Name="WrongAnswer" Nullable="true" />
+    <Property Type="String" Name="MSISDN" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="MSISDN1" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="FbId" Nullable="true" />
+    <Property Type="String" Name="FbName" Nullable="true" />
+    <Property Type="String" Name="FbImageUrl" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetLiveUserList_All_Result">
     <Property Type="String" Name="FbId" Nullable="true" />
     <Property Type="String" Name="FbName" Nullable="true" />
     <Property Type="String" Name="FbImageUrl" Nullable="true" />

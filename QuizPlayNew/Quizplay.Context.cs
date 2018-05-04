@@ -527,5 +527,57 @@ namespace QuizPlayNew
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetLiveUserList1_Result>("sp_GetLiveUserList1", fbidParameter);
         }
+    
+        public virtual ObjectResult<sp_GetLiveQuestions_Challange_Result> sp_GetLiveQuestions_Challange(Nullable<int> qtypeid)
+        {
+            var qtypeidParameter = qtypeid.HasValue ?
+                new ObjectParameter("qtypeid", qtypeid) :
+                new ObjectParameter("qtypeid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetLiveQuestions_Challange_Result>("sp_GetLiveQuestions_Challange", qtypeidParameter);
+        }
+    
+        public virtual int sp_GetTotalChallangeRightAnswer(string roomid, string type, Nullable<int> sessionNumber)
+        {
+            var roomidParameter = roomid != null ?
+                new ObjectParameter("roomid", roomid) :
+                new ObjectParameter("roomid", typeof(string));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(string));
+    
+            var sessionNumberParameter = sessionNumber.HasValue ?
+                new ObjectParameter("sessionNumber", sessionNumber) :
+                new ObjectParameter("sessionNumber", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_GetTotalChallangeRightAnswer", roomidParameter, typeParameter, sessionNumberParameter);
+        }
+    
+        public virtual ObjectResult<sp_GetTotalChallangeRightAnswer1_Result> sp_GetTotalChallangeRightAnswer1(string roomid, string type, Nullable<int> sessionNumber)
+        {
+            var roomidParameter = roomid != null ?
+                new ObjectParameter("roomid", roomid) :
+                new ObjectParameter("roomid", typeof(string));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(string));
+    
+            var sessionNumberParameter = sessionNumber.HasValue ?
+                new ObjectParameter("sessionNumber", sessionNumber) :
+                new ObjectParameter("sessionNumber", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetTotalChallangeRightAnswer1_Result>("sp_GetTotalChallangeRightAnswer1", roomidParameter, typeParameter, sessionNumberParameter);
+        }
+    
+        public virtual ObjectResult<sp_GetLiveUserList_All_Result> sp_GetLiveUserList_All(string fbid)
+        {
+            var fbidParameter = fbid != null ?
+                new ObjectParameter("fbid", fbid) :
+                new ObjectParameter("fbid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetLiveUserList_All_Result>("sp_GetLiveUserList_All", fbidParameter);
+        }
     }
 }
