@@ -1023,24 +1023,24 @@ namespace QuizPlayNew.Controllers.api
                 {
                     userToUpdate.MSISDN = token.MSISDN;
                 }
-               
+
                 //var resultOfMsisdn = userToUpdate.MSISDN == "" ? true : false;
                 //if (resultOfMsisdn)
                 //{
                 //    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
                 //}
 
-
+              
             }
             else
             {
                 token.TimeStamp = DateTime.Now;
                 token.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
                 context.tbl_QpTokenLog.Add(token);
-                context.SaveChanges();
+               
 
             }
-
+            context.SaveChanges();
             return Ok(new
             {
                 result = "Success"
@@ -1266,7 +1266,8 @@ namespace QuizPlayNew.Controllers.api
                 new SqlParameter("@roomid", a.RoomId),
                 new SqlParameter("@type", a.Type),
                 new SqlParameter("@sessionNumber", a.SessionNumber)
-                );
+                ).ToList();
+
             return Ok(new
             {
                 ChallangeResult = ScoreChallange
@@ -1276,12 +1277,15 @@ namespace QuizPlayNew.Controllers.api
         [HttpGet]
         public IHttpActionResult GetOnlineUsersCountAll([FromUri] GetLiveList getLiveList)
         {
+            var onlineuserListCount = context.tbl_QPFbInfo.Count();
+
             var ss = context.Database.SqlQuery<sp_GetLiveUserList_All_Result>("sp_GetLiveUserList_All @fbid",
                 new SqlParameter("@fbid", getLiveList.FbId));
             return Ok(new
             {
                 result = new
                 {
+                    Total = onlineuserListCount,
                     FbInfo = new
                     {
                         liveUserInfoList = ss

@@ -17,7 +17,6 @@ namespace QuizPlayNew
         public Nullable<int> WrongAnswer { get; set; }
         public string MSISDN { get; set; }
         public long Id { get; set; }
-        public string MSISDN1 { get; set; }
         public string FbId { get; set; }
         public string FbName { get; set; }
         public string FbImageUrl { get; set; }
