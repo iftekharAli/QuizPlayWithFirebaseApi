@@ -1284,7 +1284,7 @@ namespace QuizPlayNew.Controllers.api
                         Email = fbInfoPlayerOne.Email,
                         FbImageUrl = fbInfoPlayerOne.FbImageUrl,
                         FbName = fbInfoPlayerOne.FbName,
-                        Gender = fbInfoPlayerOne.Gender,
+                        Gender = fbInfoPlayerOne.Gender, 
                         Id = fbInfoPlayerOne.Id,
                         MSISDN = fbInfoPlayerOne.MSISDN,
                         RightAnswer = 0,
