@@ -1268,6 +1268,55 @@ namespace QuizPlayNew.Controllers.api
                 new SqlParameter("@sessionNumber", a.SessionNumber)
                 ).ToList();
 
+            var countList = ScoreChallange.Count;
+            string[] RoomIdSplit = a.RoomId.Split('_');
+            if (countList < 2)
+            {
+               var Player1 =  ScoreChallange.Where(x => x.FbId.Contains(RoomIdSplit[0])).ToList();
+               var Player2 =  ScoreChallange.Where(x => x.FbId.Contains(RoomIdSplit[1])).ToList();
+                if (Player1.Count == 0)
+                {
+                    var InfoOne = RoomIdSplit[0].ToString();
+                    var fbInfoPlayerOne = context.tbl_QPFbInfo.First(x => x.FbId == InfoOne);
+                    ScoreChallange.Add(new sp_GetTotalChallangeRightAnswer1_Result
+                    {
+                        FbId = RoomIdSplit[0],
+                        Email = fbInfoPlayerOne.Email,
+                        FbImageUrl = fbInfoPlayerOne.FbImageUrl,
+                        FbName = fbInfoPlayerOne.FbName,
+                        Gender = fbInfoPlayerOne.Gender,
+                        Id = fbInfoPlayerOne.Id,
+                        MSISDN=fbInfoPlayerOne.MSISDN,
+                        RightAnswer = 0,
+                        TimeStamp = DateTime.Now,
+                        WrongAnswer =5
+
+
+                    });
+                }
+
+                if (Player2.Count == 0)
+                {
+                    var InfoTwo = RoomIdSplit[1].ToString();
+                    var fbInfoPlayerTwo = context.tbl_QPFbInfo.First(x => x.FbId == InfoTwo);
+                    ScoreChallange.Add(new sp_GetTotalChallangeRightAnswer1_Result
+                    {
+                        FbId = RoomIdSplit[0],
+                        Email = fbInfoPlayerTwo.Email,
+                        FbImageUrl = fbInfoPlayerTwo.FbImageUrl,
+                        FbName = fbInfoPlayerTwo.FbName,
+                        Gender = fbInfoPlayerTwo.Gender,
+                        Id = fbInfoPlayerTwo.Id,
+                        MSISDN = fbInfoPlayerTwo.MSISDN,
+                        RightAnswer = 0,
+                        TimeStamp = DateTime.Now,
+                        WrongAnswer = 5
+
+
+                    });
+                }
+             
+            }
             return Ok(new
             {
                 ChallangeResult = ScoreChallange
