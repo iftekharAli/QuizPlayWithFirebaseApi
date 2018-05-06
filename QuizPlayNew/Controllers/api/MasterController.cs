@@ -1030,14 +1030,14 @@ namespace QuizPlayNew.Controllers.api
                 //    userToUpdate.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
                 //}
 
-              
+
             }
             else
             {
                 token.TimeStamp = DateTime.Now;
                 token.MSISDN = string.IsNullOrWhiteSpace(token.MSISDN) ? "" : token.MSISDN;
                 context.tbl_QpTokenLog.Add(token);
-               
+
 
             }
             context.SaveChanges();
@@ -1272,8 +1272,8 @@ namespace QuizPlayNew.Controllers.api
             string[] RoomIdSplit = a.RoomId.Split('_');
             if (countList < 2)
             {
-               var Player1 =  ScoreChallange.Where(x => x.FbId.Contains(RoomIdSplit[0])).ToList();
-               var Player2 =  ScoreChallange.Where(x => x.FbId.Contains(RoomIdSplit[1])).ToList();
+                var Player1 = ScoreChallange.Where(x => x.FbId.Contains(RoomIdSplit[0])).ToList();
+                var Player2 = ScoreChallange.Where(x => x.FbId.Contains(RoomIdSplit[1])).ToList();
                 if (Player1.Count == 0)
                 {
                     var InfoOne = RoomIdSplit[0].ToString();
@@ -1286,10 +1286,10 @@ namespace QuizPlayNew.Controllers.api
                         FbName = fbInfoPlayerOne.FbName,
                         Gender = fbInfoPlayerOne.Gender,
                         Id = fbInfoPlayerOne.Id,
-                        MSISDN=fbInfoPlayerOne.MSISDN,
+                        MSISDN = fbInfoPlayerOne.MSISDN,
                         RightAnswer = 0,
                         TimeStamp = DateTime.Now,
-                        WrongAnswer =5
+                        WrongAnswer = 5
 
 
                     });
@@ -1301,7 +1301,7 @@ namespace QuizPlayNew.Controllers.api
                     var fbInfoPlayerTwo = context.tbl_QPFbInfo.First(x => x.FbId == InfoTwo);
                     ScoreChallange.Add(new sp_GetTotalChallangeRightAnswer1_Result
                     {
-                        FbId = RoomIdSplit[0],
+                        FbId = RoomIdSplit[1],
                         Email = fbInfoPlayerTwo.Email,
                         FbImageUrl = fbInfoPlayerTwo.FbImageUrl,
                         FbName = fbInfoPlayerTwo.FbName,
@@ -1315,7 +1315,7 @@ namespace QuizPlayNew.Controllers.api
 
                     });
                 }
-             
+
             }
             return Ok(new
             {
